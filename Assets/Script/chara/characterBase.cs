@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
 
-public class characterBase
+public class characterBase:MonoBehaviour
 {
-    public string name;
-    public int id;
+    public string Name;
+    public int id;//0はサンプル、1~100がプレイアブル　200 ~ が敵モンスター
     public int HP;
+    public  int maxHP;
     public int Attack;
-    public float cost;
     public string Log;
 
     public virtual void attack()
