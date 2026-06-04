@@ -14,4 +14,6 @@ public class SamplePlayer : PlayerChara
         Attack = 35;
         Log = "サンプルキャラクター、何の変哲もないキャラでこれを元にいろんなキャラが作られる";
     }
+
+    
 }
