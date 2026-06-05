@@ -20,12 +20,12 @@ public class SamplePlayer : PlayerChara
 
     public override void attack()
     {
-        
+        base.attack();
     }
 
     public override void SpecialAttack()
     {
-        
+        base.SpecialAttack();
     }
 
     public override void EXSkill()

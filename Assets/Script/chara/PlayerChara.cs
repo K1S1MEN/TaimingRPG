@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using TMPro;
 using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
@@ -9,18 +10,22 @@ public class PlayerChara : characterBase
 {
     [SerializeField] Slider Slider;
     [SerializeField] TextMeshProUGUI costText;
+    [SerializeField] TextMeshProUGUI charaText;
     protected float attackCost = 1f;
     protected float specialAttackCost = 1f;
     protected float EXAttackCost;
     protected float cost = 0f;
     public float costValue = 0.7f;
+    protected string attackText;
+    protected string specialAttackText;
+    protected string EXAttackText;
     protected void FixedUpdate()
     {
         if (cost < 10f)
         {
             cost += costValue * Time.deltaTime;
             Slider.value = cost;
-            costText.text = cost.ToString("F0"); ;
+            costText.text = cost.ToString("F1"); ;
         }
         
     }
@@ -35,13 +40,15 @@ public class PlayerChara : characterBase
             cost += 0.3f;
         }
     }
-    public override void attack()
+    public override  void attack()
     {
         if (cost >= attackCost)
         {
             cost -= attackCost;
             base.attack();
             Debug.Log("í èÌçUåÇÅIÅI");
+            TextChara(attackText);
+            
         }
         else
         {
@@ -56,6 +63,7 @@ public class PlayerChara : characterBase
         {
             cost -= specialAttackCost;
             Debug.Log("ì¡éÍçUåÇÅIÅI");
+            TextChara(specialAttackText);
         }
         else
         {
@@ -69,6 +77,7 @@ public class PlayerChara : characterBase
         {
             cost -= EXAttackCost;
             Debug.Log("ïKéEãZÅIÅI");
+            TextChara(EXAttackText);
         }
         else
         {
@@ -76,4 +85,10 @@ public class PlayerChara : characterBase
         }
     }
     public virtual void Skill() { }
+    protected async void TextChara(string a)
+    {
+        charaText.text = a;
+        await Task.Delay(2000);
+        charaText.text = "";
+    }
 }
