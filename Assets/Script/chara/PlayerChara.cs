@@ -1,17 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerChara : characterBase
 {
-    private float cost = 0f;
+    [SerializeField] Slider Slider;
+    [SerializeField] TextMeshProUGUI costText;
+    protected float attackCost = 1f;
+    protected float specialAttackCost = 1f;
+    protected float EXAttackCost;
+    protected float cost = 0f;
+    public float costValue = 0.7f;
     protected void FixedUpdate()
     {
         if (cost < 10f)
         {
-            cost += 1 * Time.deltaTime;
+            cost += costValue * Time.deltaTime;
+            Slider.value = cost;
+            costText.text = cost.ToString("F0"); ;
         }
         
+    }
+    protected void Start()
+    {
+        Slider = GetComponent<Slider>();
     }
     public void CriticalCost()
     {
@@ -20,9 +35,45 @@ public class PlayerChara : characterBase
             cost += 0.3f;
         }
     }
-    public virtual void Attack2() { }
-    public virtual void Attack3() { }
+    public override void attack()
+    {
+        if (cost >= attackCost)
+        {
+            cost -= attackCost;
+            base.attack();
+            Debug.Log("通常攻撃！！");
+        }
+        else
+        {
+            Debug.Log("コストが足りません");
+        }
 
-    public virtual void EXSkill() { }
+    }
+
+    public virtual void SpecialAttack() 
+    {
+        if (cost >= specialAttackCost)
+        {
+            cost -= specialAttackCost;
+            Debug.Log("特殊攻撃！！");
+        }
+        else
+        {
+            Debug.Log("コストが足りません");
+        }
+    }
+
+    public virtual void EXSkill() 
+    { 
+        if (cost >= EXAttackCost)
+        {
+            cost -= EXAttackCost;
+            Debug.Log("必殺技！！");
+        }
+        else
+        {
+            Debug.Log("コストが足りません");
+        }
+    }
     public virtual void Skill() { }
 }

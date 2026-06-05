@@ -13,8 +13,27 @@ public class SamplePlayer : PlayerChara
         id = 0;
         Attack = 35;
         Log = "サンプルキャラクター、何の変哲もないキャラでこれを元にいろんなキャラが作られる";
+        attackCost = 1f;
+        specialAttackCost = 3f;
+        EXAttackCost = 5f;
+    }
+
+    public override void attack()
+    {
+        
+    }
+
+    public override void SpecialAttack()
+    {
+        
+    }
+
+    public override void EXSkill()
+    {
+        base.EXSkill();
+        
     }
 
 
-    
+
 }
