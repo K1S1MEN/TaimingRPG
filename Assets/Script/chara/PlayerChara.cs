@@ -19,15 +19,21 @@ public class PlayerChara : characterBase
     protected string attackText;
     protected string specialAttackText;
     protected string EXAttackText;
+    protected string notCost = "コストが足りないよぉ～";
     protected void FixedUpdate()
     {
         if (cost < 10f)
         {
             cost += costValue * Time.deltaTime;
-            Slider.value = cost;
-            costText.text = cost.ToString("F1"); ;
+            CostUpdate();
         }
         
+    }
+
+    protected void CostUpdate()
+    {
+        Slider.value = cost;
+        costText.text = cost.ToString("F1"); ;
     }
     protected void Start()
     {
@@ -46,13 +52,14 @@ public class PlayerChara : characterBase
         {
             cost -= attackCost;
             base.attack();
-            Debug.Log("通常攻撃！！");
             TextChara(attackText);
-            
+            CostUpdate();
+
+
         }
         else
         {
-            Debug.Log("コストが足りません");
+            TextChara(notCost);
         }
 
     }
@@ -62,12 +69,12 @@ public class PlayerChara : characterBase
         if (cost >= specialAttackCost)
         {
             cost -= specialAttackCost;
-            Debug.Log("特殊攻撃！！");
             TextChara(specialAttackText);
+            CostUpdate();
         }
         else
         {
-            Debug.Log("コストが足りません");
+            TextChara(notCost);
         }
     }
 
@@ -76,12 +83,12 @@ public class PlayerChara : characterBase
         if (cost >= EXAttackCost)
         {
             cost -= EXAttackCost;
-            Debug.Log("必殺技！！");
             TextChara(EXAttackText);
+            CostUpdate();
         }
         else
         {
-            Debug.Log("コストが足りません");
+            TextChara(notCost);
         }
     }
     public virtual void Skill() { }

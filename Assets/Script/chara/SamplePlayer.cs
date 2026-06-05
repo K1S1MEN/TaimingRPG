@@ -16,6 +16,9 @@ public class SamplePlayer : PlayerChara
         attackCost = 1f;
         specialAttackCost = 3f;
         EXAttackCost = 5f;
+        attackText = "おりゃあ！";
+        specialAttackText = "YES！YES！YES!";
+        EXAttackText = "運命は私に味方している！！";
     }
 
     public override void attack()
