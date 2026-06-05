@@ -15,5 +15,6 @@ public class SamplePlayer : PlayerChara
         Log = "サンプルキャラクター、何の変哲もないキャラでこれを元にいろんなキャラが作られる";
     }
 
+
     
 }
