@@ -19,7 +19,7 @@ public class PlayerChara : characterBase
     protected string attackText;
     protected string specialAttackText;
     protected string EXAttackText;
-    protected string notCost = "コストが足りないよぉ～";
+    protected string notCost = "エネルギーが足りない";
     protected void FixedUpdate()
     {
         if (cost < 10f)
