@@ -10,7 +10,7 @@ public class PlayerChara : characterBase
 {
     [SerializeField] Slider Slider;
     [SerializeField] TextMeshProUGUI costText;
-    [SerializeField] TextMeshProUGUI charaText;
+    public TextMeshProUGUI charaText;
     protected float attackCost = 1f;
     protected float specialAttackCost = 1f;
     protected float EXAttackCost;

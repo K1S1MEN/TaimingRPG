@@ -2,7 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-static class PlayerItemBox
+public static class PlayerItemBox
 {
-    static PlayerChara[] playerChara = new PlayerChara[3];
+    public static PlayerChara[] playerChara = new PlayerChara[3]
+    {
+        new SamplePlayer(),
+        new SamplePlayer2(),
+        new zain(),
+    };
 }
