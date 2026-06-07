@@ -13,9 +13,9 @@ public class characterBase : MonoBehaviour
     protected int Attack;
     protected string Log;
 
-    public virtual void attack()
+    public virtual void attack(characterBase target)
     {
-
+        target.Damage(Attack);
     }
 
     protected virtual void Damage(int ATP)

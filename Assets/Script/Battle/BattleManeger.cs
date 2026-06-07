@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class BattleManager : MonoBehaviour
 {
-    private void Chara()
-    {
-        
-    }
     private void Start()
     {
         
