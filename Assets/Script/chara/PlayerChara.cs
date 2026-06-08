@@ -5,6 +5,7 @@ using TMPro;
 using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.GraphicsBuffer;
 
 public class PlayerChara : characterBase
 {
@@ -46,22 +47,22 @@ public class PlayerChara : characterBase
             cost += 0.3f;
         }
     }
-    public override  void attack()
+    protected override  int attack()
     {
         if (cost >= attackCost)
         {
             cost -= attackCost;
-            base.attack();
+  
             TextChara(attackText);
             CostUpdate();
-
-
+            return AttackPoint;
         }
         else
         {
             TextChara(notCost);
+            return AttackPoint;
         }
-
+        
     }
 
     public virtual void SpecialAttack() 

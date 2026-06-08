@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Profiling;
 using UnityEngine;
 
 public class AegisHenchman : EnemyChara
@@ -13,8 +14,9 @@ public class AegisHenchman : EnemyChara
         Attack = 15;
         Log = "‚¿‚Ñ";
     }
-    public override void attack()
+    protected override int attack()
     {
         base.attack();
+        return AttackPoint;
     }
 }
