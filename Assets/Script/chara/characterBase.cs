@@ -11,11 +11,13 @@ public class characterBase : MonoBehaviour
     protected int maxHP;
     protected int dif;
     protected int Attack;
+    protected int AttackPoint;
     protected string Log;
 
     public virtual void attack(characterBase target)
     {
-        target.Damage(Attack);
+        AttackPoint = Attack;
+        target.Damage(AttackPoint);
     }
 
     protected virtual void Damage(int ATP)
