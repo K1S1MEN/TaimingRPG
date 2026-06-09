@@ -14,7 +14,7 @@ public class AegisHenchman : EnemyChara
         Attack = 15;
         Log = "‚¿‚Ñ";
     }
-    protected override int attack()
+    public override int attack()
     {
         base.attack();
         return AttackPoint;

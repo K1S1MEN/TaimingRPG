@@ -7,6 +7,7 @@ public class zain : PlayerChara
 {
     int energy = 0;
     public TextMeshProUGUI Energy;
+    
     void Start()
     {
         Name = "ƒUƒCƒ“";
@@ -24,7 +25,7 @@ public class zain : PlayerChara
         Energy.text = energy.ToString();
     }
 
-    protected override int attack()
+    public override int attack()
     {
         if (energy >= 1)
         {

@@ -20,7 +20,7 @@ public class SamplePlayer2 : PlayerChara
         EXAttackText = "ザ・ハンドで消す！！";
     }
 
-    protected override int attack()
+    public override int attack()
     {
         base.attack();
         return AttackPoint;

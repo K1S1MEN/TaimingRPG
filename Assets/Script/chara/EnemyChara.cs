@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +9,8 @@ public class EnemyChara : characterBase
 {
     [SerializeField] Slider HPSlider;
     public int EXP;
+    public int coolTime;
+    public TextMeshProUGUI charaText;
 
     private void FixedUpdate()
     {
@@ -18,5 +22,11 @@ public class EnemyChara : characterBase
         HPSlider.maxValue = maxHP;
         HPSlider.minValue = 0;
         HPSlider.value = HP;
+    }
+    protected async Task TextChara(string a)
+    {
+        charaText.text = a;
+        await Task.Delay(2000);
+        charaText.text = "";
     }
 }

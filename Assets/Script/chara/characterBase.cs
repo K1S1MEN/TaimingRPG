@@ -14,13 +14,13 @@ public class characterBase : MonoBehaviour
     protected int AttackPoint;
     protected string Log;
 
-    protected virtual int attack()
+    public virtual int attack()
     {
         AttackPoint = Attack;
         return AttackPoint;
     }
 
-    protected virtual void Damage(int ATP)
+    public virtual void Damage(int ATP)
     {
         HP = ATP - dif;
         if (HP <= 0)

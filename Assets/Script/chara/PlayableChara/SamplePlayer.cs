@@ -21,7 +21,7 @@ public class SamplePlayer : PlayerChara
         EXAttackText = "‰^–½‚Í„‚É–¡•û‚µ‚Ä‚¢‚éII";
     }
 
-    protected override int attack()
+    public override int attack()
     {
         base.attack();
         return AttackPoint;
