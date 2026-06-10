@@ -14,7 +14,7 @@ public class characterBase : MonoBehaviour
     protected int AttackPoint;
     protected string Log;
 
-    public virtual int attack()
+    public virtual int attack(characterBase target)
     {
         AttackPoint = Attack;
         return AttackPoint;

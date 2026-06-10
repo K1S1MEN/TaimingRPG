@@ -47,7 +47,7 @@ public class PlayerChara : characterBase
             cost += 0.3f;
         }
     }
-    public override  int attack()
+    public override  int attack(characterBase target)
     {
         if (cost >= attackCost)
         {

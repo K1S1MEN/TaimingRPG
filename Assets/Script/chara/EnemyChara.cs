@@ -20,6 +20,7 @@ public class EnemyChara : characterBase
     {
         HPSlider = GetComponent<Slider>();
         HPSlider.maxValue = maxHP;
+        HP = maxHP; 
         HPSlider.minValue = 0;
         HPSlider.value = HP;
     }
