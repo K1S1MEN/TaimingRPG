@@ -25,7 +25,7 @@ public class zain : PlayerChara
         Energy.text = energy.ToString();
     }
 
-    public override int attack(characterBase target)
+    public override void attack(characterBase target)
     {
         if (energy >= 1)
         {
@@ -33,7 +33,6 @@ public class zain : PlayerChara
         }
         
         base.attack(target);
-        return AttackPoint;
     }
 
     public override void SpecialAttack()

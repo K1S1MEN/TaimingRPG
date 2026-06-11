@@ -47,20 +47,19 @@ public class PlayerChara : characterBase
             cost += 0.3f;
         }
     }
-    public override  int attack(characterBase target)
+    public override void attack(characterBase target)
     {
         if (cost >= attackCost)
         {
             cost -= attackCost;
   
             TextChara(attackText);
+            target.Damage(AttackPoint);
             CostUpdate();
-            return AttackPoint;
         }
         else
         {
             TextChara(notCost);
-            return AttackPoint;
         }
         
     }

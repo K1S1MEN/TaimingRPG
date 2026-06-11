@@ -5,5 +5,12 @@ using UnityEngine;
 
 public class BattleManager : MonoBehaviour
 {
-    
+    public void CreateParty()
+    {
+
+    }
+    public void CreateEnemy()
+    {
+
+    }
 }
