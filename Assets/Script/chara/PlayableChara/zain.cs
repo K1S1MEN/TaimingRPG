@@ -21,7 +21,7 @@ public class zain : PlayerChara
         EXAttackCost = 8f;
         attackText = "えいっ";
         specialAttackText = "エネルギーチャージ";
-        EXAttackText = "可能性を解放します";
+        EXAttackText = "さよならんちゃ";
         Energy.text = energy.ToString();
     }
 
