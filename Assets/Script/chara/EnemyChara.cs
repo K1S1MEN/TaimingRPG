@@ -7,18 +7,13 @@ using UnityEngine.UI;
 
 public class EnemyChara : characterBase
 {
-    [SerializeField] Slider HPSlider;
+    public Slider HPSlider;
     public int EXP;
     public int coolTime;
     public TextMeshProUGUI charaText;
 
-    private void FixedUpdate()
+    protected void Start()
     {
-        
-    }
-    private void Start()
-    {
-        HPSlider = GetComponent<Slider>();
         HPSlider.maxValue = maxHP;
         HP = maxHP; 
         HPSlider.minValue = 0;

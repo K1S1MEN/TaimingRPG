@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AegisHenchman : EnemyChara
 {
-    void Start()
+    new void Start()
     {
         Name = "AegisHenchman";
         HP = 50;
@@ -13,6 +13,8 @@ public class AegisHenchman : EnemyChara
         id = 200;
         Attack = 15;
         Log = "‚¿‚Ñ";
+        base.Start();
+        
     }
     public override void attack(characterBase target)
     {

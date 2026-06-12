@@ -9,7 +9,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class PlayerChara : characterBase
 {
-    [SerializeField] Slider Slider;
+    public Slider Slider;
     [SerializeField] TextMeshProUGUI costText;
     public TextMeshProUGUI charaText;
     protected float attackCost = 1f;
@@ -38,7 +38,7 @@ public class PlayerChara : characterBase
     }
     protected void Start()
     {
-        Slider = GetComponent<Slider>();
+
     }
     public void CriticalCost()
     {

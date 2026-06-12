@@ -8,8 +8,9 @@ public class zain : PlayerChara
     int energy = 0;
     public TextMeshProUGUI Energy;
     
-    void Start()
+    new void Start()
     {
+        base.Start();
         Name = "ÉUÉCÉì";
         HP = 250;
         maxHP = 200;

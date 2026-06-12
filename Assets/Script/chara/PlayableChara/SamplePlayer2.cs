@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class SamplePlayer2 : PlayerChara
 {
-    void Start()
+    new void Start()
     {
+        base.Start();
         Name = "sample";
         HP = 200;
         maxHP = 200;
