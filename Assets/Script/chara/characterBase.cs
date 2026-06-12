@@ -16,6 +16,7 @@ public class characterBase : MonoBehaviour
 
     public virtual void  attack(characterBase target)
     {
+        characterBase t = BattleManager.Instance.enemyMember[0];
         AttackPoint = Attack;
         target.Damage(AttackPoint);
     }
