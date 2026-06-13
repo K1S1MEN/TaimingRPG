@@ -14,6 +14,7 @@ public class EnemyChara : characterBase
 
     protected void Start()
     {
+        HPSlider = GetComponentInChildren<Slider>();
         HPSlider.maxValue = maxHP;
         HP = maxHP; 
         HPSlider.minValue = 0;
@@ -24,5 +25,12 @@ public class EnemyChara : characterBase
         charaText.text = a;
         await Task.Delay(2000);
         charaText.text = "";
+    }
+
+    public override void Damage(int d)
+    {
+        base.Damage(d);
+        Debug.Log(HP);
+        HPSlider.value = HP;
     }
 }

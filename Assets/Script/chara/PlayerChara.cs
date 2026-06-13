@@ -30,6 +30,12 @@ public class PlayerChara : characterBase
         }
         
     }
+    public void OnAttackButton()
+    {
+        characterBase target = BattleManager.Instance.enemyMember[0];
+
+        attack(target);
+    }
 
     protected void CostUpdate()
     {

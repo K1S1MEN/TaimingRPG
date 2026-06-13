@@ -17,13 +17,12 @@ public class characterBase : MonoBehaviour
     public virtual void  attack(characterBase target)
     {
         characterBase t = BattleManager.Instance.enemyMember[0];
-        AttackPoint = Attack;
         target.Damage(AttackPoint);
     }
 
     public virtual void Damage(int ATP)
     {
-        HP = ATP - dif;
+        HP -= ATP - dif;
         if (HP <= 0)
         {
             Die();
@@ -33,6 +32,7 @@ public class characterBase : MonoBehaviour
     protected virtual void Die()
     {
 
+        Destroy(this);
     }
 
 }

@@ -16,7 +16,7 @@ public class BattleManager : MonoBehaviour
     }
     public void CreateEnemy()
     {
-
+        enemyMember.Add(new AegisHenchman());
     }
     private void Awake()
     {

@@ -32,7 +32,10 @@ public class zain : PlayerChara
         {
             AttackPoint = Attack * energy;
         }
-        
+        else
+        {
+            AttackPoint= Attack;
+        }
         base.attack(target);
     }
 
