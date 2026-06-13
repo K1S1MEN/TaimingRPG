@@ -28,14 +28,7 @@ public class zain : PlayerChara
 
     public override void attack(characterBase target)
     {
-        if (energy >= 1)
-        {
-            AttackPoint = Attack * energy;
-        }
-        else
-        {
-            AttackPoint= Attack;
-        }
+        AttackPoint = Attack;
         base.attack(target);
     }
 
@@ -55,6 +48,15 @@ public class zain : PlayerChara
 
     public override void EXSkill()
     {
+        if (energy >= 1)
+        {
+            AttackPoint = Attack * energy+Attack*energy*2;
+            energy = 0;
+        }
+        else
+        {
+            AttackPoint = Attack;
+        }
         base.EXSkill();
 
     }

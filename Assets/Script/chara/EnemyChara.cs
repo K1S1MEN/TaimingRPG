@@ -30,7 +30,6 @@ public class EnemyChara : characterBase
     public override void Damage(int d)
     {
         base.Damage(d);
-        Debug.Log(HP);
         HPSlider.value = HP;
     }
 }

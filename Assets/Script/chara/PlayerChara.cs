@@ -88,9 +88,11 @@ public class PlayerChara : characterBase
     { 
         if (cost >= EXAttackCost)
         {
+            characterBase t = BattleManager.Instance.enemyMember[0];
             cost -= EXAttackCost;
             TextChara(EXAttackText);
             CostUpdate();
+            t.Damage(AttackPoint);
         }
         else
         {
