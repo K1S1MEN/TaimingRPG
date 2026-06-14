@@ -10,9 +10,11 @@ public class BattleManager : MonoBehaviour
     public List<EnemyChara> enemyMember = new List<EnemyChara>();
 
     public List<PlayerChara> playerMember = new List<PlayerChara>();
+
+    public GameObject zainPrefab;
     public void CreateParty()
     {
-        
+        Instantiate(zainPrefab);
     }
     public void CreateEnemy()
     {
