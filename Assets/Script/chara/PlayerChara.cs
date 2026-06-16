@@ -15,7 +15,7 @@ public class PlayerChara : characterBase
     protected float attackCost = 1f;
     protected float specialAttackCost = 1f;
     protected float EXAttackCost;
-    protected float cost = 0f;
+    public float cost = 0f;
     public float costValue = 0.7f;
     protected string attackText;
     protected string specialAttackText;
@@ -50,7 +50,9 @@ public class PlayerChara : characterBase
     {
         if(cost <10f)
         {
-            cost += 0.3f;
+            BattleManager.Instance.playerMember[0].cost += 0.3f;
+            BattleManager.Instance.playerMember[1].cost += 0.3f;
+            BattleManager.Instance.playerMember[2].cost += 0.3f;
         }
     }
     public override void attack(characterBase target)
