@@ -102,6 +102,11 @@ public class PlayerChara : characterBase
         }
     }
     public virtual void Skill() { }
+    private async Task<bool> AttackCoolTime(int waitTime)
+    {
+        await Task.Delay(waitTime);
+        return true;
+    }
     protected async void TextChara(string a)
     {
         charaText.text = a;

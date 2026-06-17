@@ -6,7 +6,7 @@ using UnityEngine;
 public class characterBase : MonoBehaviour
 {
     protected string Name;
-    protected int id;//0はサンプル、1~100がプレイアブル　200 ~ が敵モンスター
+    protected int id;
     protected int HP;
     protected int maxHP;
     protected int dif;
