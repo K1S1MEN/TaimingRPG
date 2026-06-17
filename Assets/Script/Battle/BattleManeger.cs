@@ -30,6 +30,7 @@ public class BattleManager : MonoBehaviour
     {
          CreateEnemy();
         CreateParty();
+        playerMember[0].attack(enemyMember[Random.Range(0,4)]);
     }
 
     private void FixedUpdate()

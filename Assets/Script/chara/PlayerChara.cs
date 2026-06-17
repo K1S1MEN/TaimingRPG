@@ -55,8 +55,9 @@ public class PlayerChara : characterBase
             BattleManager.Instance.playerMember[2].cost += 0.3f;
         }
     }
-    public override void attack(characterBase target)
+    public override async void attack(characterBase target)
     {
+        await AttackCoolTime(1000);
         if (cost >= attackCost)
         {
             cost -= attackCost;
@@ -102,7 +103,7 @@ public class PlayerChara : characterBase
         }
     }
     public virtual void Skill() { }
-    private async Task<bool> AttackCoolTime(int waitTime)
+    public async Task<bool> AttackCoolTime(int waitTime)
     {
         await Task.Delay(waitTime);
         return true;
