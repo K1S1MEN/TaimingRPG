@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 
+[CreateAssetMenu(menuName = "PlayerChara")]
 public class PlayerChara : characterBase
 {
     public Slider Slider;
@@ -17,10 +18,12 @@ public class PlayerChara : characterBase
     protected float EXAttackCost;
     public float cost = 0f;
     public float costValue = 0.7f;
-    protected string attackText;
-    protected string specialAttackText;
-    protected string EXAttackText;
-    protected string notCost = "エネルギーが足りない";
+    [Header("TEXT")]
+
+    public string attackText;
+    public string specialAttackText;
+    public string EXAttackText;
+    public string notCost = "エネルギーが足りない";
     protected void FixedUpdate()
     {
         if (cost < 10f)
@@ -55,9 +58,8 @@ public class PlayerChara : characterBase
             BattleManager.Instance.playerMember[2].cost += 0.3f;
         }
     }
-    public override async void attack(characterBase target)
+    public override  void attack(characterBase target)
     {
-        await AttackCoolTime(1000);
         if (cost >= attackCost)
         {
             cost -= attackCost;

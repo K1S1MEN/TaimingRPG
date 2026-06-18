@@ -14,7 +14,7 @@ public class EnemyChara : characterBase
 
     protected void Start()
     {
-        HPSlider = GetComponentInChildren<Slider>();
+        //HPSlider = GetComponentInChildren<Slider>();
         HPSlider.maxValue = maxHP;
         HP = maxHP; 
         HPSlider.minValue = 0;

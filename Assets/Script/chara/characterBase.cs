@@ -2,21 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
-
-public class characterBase : MonoBehaviour
+[CreateAssetMenu(menuName = "Character Base")]
+public class characterBase : ScriptableObject
 {
-    protected string Name;
-    protected int id;
-    protected int HP;
-    protected int maxHP;
-    protected int dif;
-    protected int Attack;
+    public characterBase Prefab;
+    [Header("value")]
+    public string Name;
+    public int id;
+    public int HP;
+    public int maxHP;
+    public int dif;
+    public int Attack;
     protected int AttackPoint;
-    protected string Log;
+    public string Log;
+
 
     public virtual void  attack(characterBase target)
     {
-        characterBase t = BattleManager.Instance.enemyMember[0];
+        AttackPoint = Attack;
         target.Damage(AttackPoint);
     }
 
