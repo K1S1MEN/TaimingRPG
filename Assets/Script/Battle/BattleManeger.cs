@@ -17,6 +17,9 @@ public class BattleManager : MonoBehaviour
 
     public List<PlayerChara> AttackLine = new List<PlayerChara>();
 
+    int playerSelect = 0;
+
+    bool AttackFlag = false;
     public void CreateParty()
     {
         playerMember.Add(PlayerItemBox.playerChara[0]);
@@ -38,15 +41,37 @@ public class BattleManager : MonoBehaviour
         CreateParty();
         
     }
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.UpArrow) && playerSelect < 0)
+        {
+            playerSelect --;
+        }
+        if (Input.GetKeyUp(KeyCode.DownArrow) && playerSelect < 3)
+        {
+            playerSelect++;
+        }
 
+    }
     private void FixedUpdate()
     {
         
     }
 
-    public void PlayerAttack()
+    public async Task PlayerAttack()
     {
-        playerMember[0].attack(enemyMember[Random.Range(0, enemyMember.Count + 1)]);
+        PlayerChara _;
+        if (playerMember[0].attack(enemyMember[Random.Range(0, enemyMember.Count + 1)]))
+        {
+            await AttackCoolTime(500);
+        }
+        else
+        {
+            await AttackCoolTime(1000);
+        }
+        _ = playerMember[0];
+        playerMember.RemoveAt(0);
+        playerMember.Add(_);
     }
     public async Task<bool> AttackCoolTime(int waitTime)
     {

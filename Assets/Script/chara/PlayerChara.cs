@@ -58,21 +58,38 @@ public class PlayerChara : characterBase
             BattleManager.Instance.playerMember[2].cost += 0.3f;
         }
     }
-    public override  void attack(characterBase target)
+    public override  bool attack(characterBase target)
     {
+        base.attack(target);
         if (cost >= attackCost)
         {
             cost -= attackCost;
-  
-            TextChara(attackText);
-            target.Damage(AttackPoint);
+            switch (Judgment())
+            {
+                case 0:
+                    break;
+                case 1:
+                    target.Damage(AttackPoint);
+                    TextChara(attackText);
+                    break;
+                case 2:
+                    target.Damage(AttackPoint*2);
+                    CriticalCost();
+                    TextChara(attackText);
+                    return true;
+            }
+            
+            
             CostUpdate();
+            
         }
         else
         {
             TextChara(notCost);
+
         }
-        
+        return false;
+
     }
 
     public virtual void SpecialAttack() 

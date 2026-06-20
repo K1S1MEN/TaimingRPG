@@ -17,10 +17,15 @@ public class characterBase : ScriptableObject
     public string Log;
 
 
-    public virtual void  attack(characterBase target)
+    public virtual bool  attack(characterBase target)
     {
         AttackPoint = Attack;
-        target.Damage(AttackPoint);
+        return true;
+    }
+
+    public int Judgment()
+    {
+        return 0;
     }
 
     public virtual void Damage(int ATP)

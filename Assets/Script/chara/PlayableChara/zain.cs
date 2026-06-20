@@ -26,10 +26,9 @@ public class zain : PlayerChara
         Energy.text = energy.ToString();
     }
 
-    public override void attack(characterBase target)
+    public override bool attack(characterBase target)
     {
-        AttackPoint = Attack;
-        base.attack(target);
+        return base.attack(target);
     }
 
     public override void SpecialAttack()
