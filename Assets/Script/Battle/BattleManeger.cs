@@ -16,6 +16,7 @@ public class BattleManager : MonoBehaviour
     public GameObject zainPrefab;
 
     public List<PlayerChara> AttackLine = new List<PlayerChara>();
+
     public void CreateParty()
     {
         playerMember.Add(PlayerItemBox.playerChara[0]);
@@ -35,7 +36,7 @@ public class BattleManager : MonoBehaviour
     {
          CreateEnemy();
         CreateParty();
-        playerMember[0].attack(enemyMember[Random.Range(0,4)]);
+        
     }
 
     private void FixedUpdate()
@@ -45,7 +46,7 @@ public class BattleManager : MonoBehaviour
 
     public void PlayerAttack()
     {
-
+        playerMember[0].attack(enemyMember[Random.Range(0, enemyMember.Count + 1)]);
     }
     public async Task<bool> AttackCoolTime(int waitTime)
     {
