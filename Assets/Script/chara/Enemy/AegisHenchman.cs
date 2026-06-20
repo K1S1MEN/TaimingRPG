@@ -20,8 +20,8 @@ public class AegisHenchman : EnemyChara
 
         
     }
-    public override void attack(characterBase target)
+    public override bool attack(characterBase target)
     {
-        base.attack(target);
+        return base.attack(target);
     }
 }
