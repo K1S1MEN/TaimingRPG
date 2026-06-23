@@ -138,7 +138,7 @@ public class PlayerChara : characterBase
                 Debug.Log("EX");
                 break;
                 default:
-                Debug.LogError("想定されてない値が入ってます");
+                Debug.LogError("指定されてない値が入ってます");
                 break;
 
         }
