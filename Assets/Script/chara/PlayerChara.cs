@@ -122,9 +122,26 @@ public class PlayerChara : characterBase
         }
     }
     public virtual void Skill() { }
-    public async Task<bool> AttackCoolTime(int waitTime)
+    public async Task<bool> AttackCoolTime(int waitTime,int type)
     {
         await Task.Delay(waitTime);
+
+        switch (type)
+        {
+            case 0:
+                Debug.Log("’Êí");
+                break;
+                case 1:
+                Debug.Log("SKILL");
+                break;
+                case 2:
+                Debug.Log("EX");
+                break;
+                default:
+                Debug.LogError("‘z’è‚³‚ê‚Ä‚È‚¢’l‚ª“ü‚Á‚Ä‚Ü‚·");
+                break;
+
+        }
         return true;
     }
     protected async void TextChara(string a)
