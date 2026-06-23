@@ -41,18 +41,7 @@ public class BattleManager : MonoBehaviour
         CreateParty();
         
     }
-    private void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.UpArrow) && playerSelect < 0)
-        {
-            playerSelect --;
-        }
-        if (Input.GetKeyUp(KeyCode.DownArrow) && playerSelect < 3)
-        {
-            playerSelect++;
-        }
-
-    }
+    
     private void FixedUpdate()
     {
         
