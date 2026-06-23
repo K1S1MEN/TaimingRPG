@@ -24,6 +24,8 @@ public class PlayerChara : characterBase
     public string specialAttackText;
     public string EXAttackText;
     public string notCost = "エネルギーが足りない";
+    private int playerSelect = 0;
+    private bool isCoolTime = false;
     protected void FixedUpdate()
     {
         if (cost < 10f)
@@ -39,7 +41,19 @@ public class PlayerChara : characterBase
 
         attack(target);
     }
+    private void Update()
+    {
 
+        if (Input.GetKeyUp(KeyCode.UpArrow) && playerSelect < 0 && isCoolTime)
+        {
+            playerSelect--;
+        }
+        if (Input.GetKeyUp(KeyCode.DownArrow) && playerSelect < 3 && isCoolTime)
+        {
+            playerSelect++;
+        }
+
+    }
     protected void CostUpdate()
     {
         Slider.value = cost;
@@ -122,26 +136,33 @@ public class PlayerChara : characterBase
         }
     }
     public virtual void Skill() { }
-    public async Task<bool> AttackCoolTime(int waitTime,int type)
+    public async Task<bool> AttackCoolTime(int waitTime,characterBase target)
     {
-        await Task.Delay(waitTime);
+        isCoolTime = true;    
+    
+    await Task.Delay(waitTime);
 
-        switch (type)
+        switch (playerSelect)
         {
             case 0:
                 Debug.Log("通常");
+                attack(target);
                 break;
                 case 1:
                 Debug.Log("SKILL");
+                Skill();
                 break;
                 case 2:
                 Debug.Log("EX");
+                EXSkill();
                 break;
                 default:
                 Debug.LogError("指定されてない値が入ってます");
                 break;
 
         }
+
+        isCoolTime = false;
         return true;
     }
     protected async void TextChara(string a)
