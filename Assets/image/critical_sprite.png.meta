@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 883e29c6da1872746a0d91b5d137a205
+guid: e7d11c375e7ed024cb9919a6ffac4a04
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: critical_0
+      name: critical_sprite_0
       rect:
         serializedVersion: 2
         x: 28
@@ -105,20 +105,20 @@ TextureImporter:
         width: 8
         height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dde8afe93b71ef04482c93406ea7fef9
-      internalID: 31571880
+      spriteID: 04431a14beede9a458ecdfa45920fba9
+      internalID: 1316963639
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: critical_1
+      name: critical_sprite_1
       rect:
         serializedVersion: 2
         x: 88
@@ -126,20 +126,20 @@ TextureImporter:
         width: 16
         height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 648b39ca5b82c3d4a95cc5a49af31a8f
-      internalID: -2019233144
+      spriteID: 556c14d17634d644290df5d409cc717c
+      internalID: -874003924
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: critical_2
+      name: critical_sprite_2
       rect:
         serializedVersion: 2
         x: 149
@@ -147,20 +147,20 @@ TextureImporter:
         width: 22
         height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5339a8aa9f06108468ee57a5580bab99
-      internalID: -1471488429
+      spriteID: a3e01b99a4e0ac442a0c936599133dfd
+      internalID: -1810312149
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: critical_3
+      name: critical_sprite_3
       rect:
         serializedVersion: 2
         x: 208
@@ -168,20 +168,20 @@ TextureImporter:
         width: 32
         height: 38
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91550466e55842e4a947d37503c285e3
-      internalID: -452621391
+      spriteID: d1fd83275187db44ab971de6df61dc61
+      internalID: 554237811
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: critical_4
+      name: critical_sprite_4
       rect:
         serializedVersion: 2
         x: 268
@@ -189,14 +189,119 @@ TextureImporter:
         width: 40
         height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d87a6ec6848da3a4982dd1bcf3a57df2
-      internalID: 666623019
+      spriteID: 4fd3945d216b87849b1110b7af697159
+      internalID: 1571793633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: critical_sprite_5
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 3
+        width: 40
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adfad158abfdeb5498218dc813fd2535
+      internalID: 1550400188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: critical_sprite_6
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 13
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c94dc00c95435474dac7f07fa17c4545
+      internalID: -1603471498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: critical_sprite_7
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 19
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74b946f121597d842b2f5b18956dad3c
+      internalID: 1960849218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: critical_sprite_8
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 25
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4ce52c7d4338024094e72c0ec09f3ae
+      internalID: 1109865709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: critical_sprite_9
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 12
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 823e40583f0b7f246b3524bc9a1542cc
+      internalID: -2031328036
       vertices: []
       indices: 
       edges: []
@@ -212,11 +317,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      critical_0: 31571880
-      critical_1: -2019233144
-      critical_2: -1471488429
-      critical_3: -452621391
-      critical_4: 666623019
+      critical_sprite_0: 1316963639
+      critical_sprite_1: -874003924
+      critical_sprite_2: -1810312149
+      critical_sprite_3: 554237811
+      critical_sprite_4: 1571793633
+      critical_sprite_5: 1550400188
+      critical_sprite_6: -1603471498
+      critical_sprite_7: 1960849218
+      critical_sprite_8: 1109865709
+      critical_sprite_9: -2031328036
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

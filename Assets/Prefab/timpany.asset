@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19a3c89b50066a0478f53a805867c261, type: 3}
   m_Name: timpany
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 0}
+  Prefab: {fileID: 11400000}
   Name: "\u30C6\u30A3\u30F3\u30D1\u30CB\u30FC"
   id: 2
   HP: 1000
@@ -23,8 +23,6 @@ MonoBehaviour:
   Slider: {fileID: 0}
   costText: {fileID: 0}
   charaText: {fileID: 0}
-  cost: 0
-  costValue: 0.7
   attackText: 
   specialAttackText: 
   EXAttackText: 
