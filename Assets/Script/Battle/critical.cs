@@ -6,17 +6,18 @@ using UnityEngine;
 public class critical : MonoBehaviour
 {
     public float criticalJudge = 568f;
-    public float time = 0;
+    private float time = 0;
     public float max = 1f;
     public float speed = 0f;
+    public float overLine = 1f;
     public RectTransform rect;
+    private GameObject go;
     bool MoveFlag = true;
     float x;
     float y;
     void Start()
     {
-        x = rect.anchoredPosition.x;
-        y = rect.anchoredPosition.y;
+        go = this.gameObject;
     }
 
     // Update is called once per frame
@@ -25,13 +26,17 @@ public class critical : MonoBehaviour
         time += Time.deltaTime;
         if (time <= max && MoveFlag)
         {
-            this.rect.anchoredPosition = new Vector2(this.rect.anchoredPosition.x+time * speed, this.rect.anchoredPosition.y);
+            this.rect.anchoredPosition = new Vector2(this.rect.anchoredPosition.x+1*speed, this.rect.anchoredPosition.y); 
+            
+        }
+        else
+        {
+            Destroy(this.gameObject);
         }
         if (Input.GetKeyDown(KeyCode.Space)&& MoveFlag)
         {
             MoveFlag = false;
             Judge();
-            
         }
     }
     void Judge()
@@ -45,5 +50,8 @@ public class critical : MonoBehaviour
         {
             Debug.Log("b");
         }
+        Destroy(this.gameObject);
+
+
     }
 }
