@@ -4085,9 +4085,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96103bf3f2e7b24dbd2e38c86237a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  criticalJudge: 568
+  criticalPoint: {fileID: 674609869}
+  criticalWidth: 100
   max: 0.9
-  speed: 1.25
+  speed: 0.3
   overLine: 10
   rect: {fileID: 1706534907}
 --- !u!1 &2051133291

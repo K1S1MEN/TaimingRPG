@@ -5,12 +5,14 @@ using UnityEngine;
 
 public class critical : MonoBehaviour
 {
-    public float criticalJudge = 568f;
+    public RectTransform criticalPoint;
+    public float criticalWidth;
     private float time = 0;
     public float max = 1f;
     public float speed = 0f;
     public float overLine = 1f;
     public RectTransform rect;
+    
     private GameObject go;
     bool MoveFlag = true;
     float x;
@@ -24,7 +26,7 @@ public class critical : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-        if (time <= max && MoveFlag)
+        if (criticalPoint.anchoredPosition.x + criticalWidth>=this.rect.anchoredPosition.x && MoveFlag)
         {
             this.rect.anchoredPosition = new Vector2(this.rect.anchoredPosition.x+1*speed, this.rect.anchoredPosition.y); 
             
@@ -42,7 +44,7 @@ public class critical : MonoBehaviour
     void Judge()
     {
         float _ = this.rect.anchoredPosition.x;
-        if (criticalJudge <= _)
+        if (criticalPoint.anchoredPosition.x + criticalWidth > _ && criticalPoint.anchoredPosition.x - criticalWidth < _)
         {
             Debug.Log("a");
         }
