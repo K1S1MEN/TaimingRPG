@@ -22,6 +22,7 @@ public class PlayerChara : characterBase
     public string notCost = "エネルギーが足りない";
     private int playerSelect = 0;
     private bool isCoolTime = false;
+    BattleManager bt = BattleManager.Instance;
     public void OnAttackButton()
     {
         characterBase target = BattleManager.Instance.enemyMember[0];
@@ -43,7 +44,7 @@ public class PlayerChara : characterBase
     }
     protected void Start()
     {
-
+        
     }
     public override  bool attack(characterBase target)
     {
@@ -64,34 +65,48 @@ public class PlayerChara : characterBase
 
     }
     public virtual void Skill() { }
-    public async Task<bool> AttackCoolTime(int waitTime,characterBase target)
-    {
-        isCoolTime = true;    
-    
-    await Task.Delay(waitTime);
 
+    public async Task Line()
+    {
+        while (true)
+        {
+            await AttackCoolTime(1000);
+
+            while (isCoolTime)
+            {
+                await Task.Yield();
+            }
+            SelectAttack(bt.GiveEnemy());
+            
+        }
+    }
+    public virtual void SelectAttack(characterBase target)
+    {
         switch (playerSelect)
         {
             case 0:
                 Debug.Log("通常");
                 attack(target);
                 break;
-                case 1:
+            case 1:
                 Debug.Log("SKILL");
                 Skill();
                 break;
-                case 2:
+            case 2:
                 Debug.Log("EX");
                 EXSkill();
                 break;
-                default:
+            default:
                 Debug.LogError("指定されてない値が入ってます");
                 break;
 
         }
-
+    }
+    public async Task AttackCoolTime(int waitTime)
+    {
+        isCoolTime = true;
+        await Task.Delay(waitTime);
         isCoolTime = false;
-        return true;
     }
     protected async void TextChara(string a)
     {

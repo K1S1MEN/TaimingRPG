@@ -9,6 +9,8 @@ public class BattleManager : MonoBehaviour
 {
     public static BattleManager Instance;
 
+    public static bool finish = false;
+
     public List<EnemyChara> enemyMember = new List<EnemyChara>();
 
     public List<PlayerChara> playerMember = new List<PlayerChara>();
@@ -42,7 +44,6 @@ public class BattleManager : MonoBehaviour
     {
          CreateEnemy();
         CreateParty();
-        NextTurn();
     }
     
     private void FixedUpdate()
@@ -50,44 +51,8 @@ public class BattleManager : MonoBehaviour
         
     }
 
-    public async Task PlayerAttack()
+    public characterBase GiveEnemy()
     {
-        PlayerChara _;
-        if (playerMember[0].attack(enemyMember[Random.Range(0, enemyMember.Count + 1)]))
-        {
-            await AttackCoolTime(500);
-        }
-        else
-        {
-            await AttackCoolTime(1000);
-        }
-        _ = playerMember[0];
-        playerMember.RemoveAt(0);
-        playerMember.Add(_);
+        return enemyMember[Random.Range(0,enemyMember.Count)];
     }
-    public async Task<bool> AttackCoolTime(int waitTime)
-    {
-        await Task.Delay(waitTime);
-        return true;
-    }
-
-    public async Task  NextTurn()
-    {
-        Debug.Log("‹N“®");
-        await PlayerItemBox.playerChara[SelectCharacterNum].AttackCoolTime(charaCoolTime, enemyMember[Random.Range(0,enemyMember.Count)]);
-        if (enemyMember.Count <= 0)
-        {
-            Debug.Log("‚Ý‚ñ‚È‹‚È‚¢");
-        }
-        else
-        {
-            Debug.Log("NextTurn");
-            SelectCharacterNum++;
-            NextTurn();
-        }
-        Debug.Log("finish");
-        
-        
-    }
-
 }
