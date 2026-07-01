@@ -1154,11 +1154,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36fe2e909b4a19942a1a7f7886e440a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyMember:
-  - {fileID: 0}
-  playerMember: []
+  enemyMember: []
+  playerMember:
+  - {fileID: 11400000, guid: eca9fde665d877d42b91b1780ebf7c4a, type: 2}
+  - {fileID: 11400000, guid: 811827b9ab340e34fa4ad02d7df7bce5, type: 2}
+  - {fileID: 11400000, guid: f3b72a8382439344cbe78cf1a4c6829b, type: 2}
   zainPrefab: {fileID: 5706326574797063077, guid: 1b427f3892c311546b475c93133acbfa, type: 3}
   AttackLine: []
+  charaCoolTime: 1000
 --- !u!4 &586481000
 Transform:
   m_ObjectHideFlags: 0

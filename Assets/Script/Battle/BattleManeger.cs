@@ -17,7 +17,9 @@ public class BattleManager : MonoBehaviour
 
     public List<PlayerChara> AttackLine = new List<PlayerChara>();
 
-    int playerSelect = 0;
+    public int charaCoolTime = 1000;
+
+    private int SelectCharacterNum;
 
     bool AttackFlag = false;
     public void CreateParty()
@@ -25,6 +27,7 @@ public class BattleManager : MonoBehaviour
         playerMember.Add(PlayerItemBox.playerChara[0]);
         playerMember.Add(PlayerItemBox.playerChara[1]);
         playerMember.Add(PlayerItemBox.playerChara[2]);
+        enemyMember.Add(new AegisHenchman());
     }
     public void CreateEnemy()
     {
@@ -39,7 +42,7 @@ public class BattleManager : MonoBehaviour
     {
          CreateEnemy();
         CreateParty();
-        
+        NextTurn();
     }
     
     private void FixedUpdate()
@@ -68,5 +71,23 @@ public class BattleManager : MonoBehaviour
         return true;
     }
 
+    public async Task  NextTurn()
+    {
+        Debug.Log("‹N“®");
+        await PlayerItemBox.playerChara[SelectCharacterNum].AttackCoolTime(charaCoolTime, enemyMember[Random.Range(0,enemyMember.Count)]);
+        if (enemyMember.Count <= 0)
+        {
+            Debug.Log("‚Ý‚ñ‚È‹‚È‚¢");
+        }
+        else
+        {
+            Debug.Log("NextTurn");
+            SelectCharacterNum++;
+            NextTurn();
+        }
+        Debug.Log("finish");
+        
+        
+    }
 
 }
