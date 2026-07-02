@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
+using Cysharp.Threading.Tasks;
 
 public class critical : MonoBehaviour
 {
@@ -17,11 +19,11 @@ public class critical : MonoBehaviour
     bool MoveFlag = true;
     float x;
     float y;
+    int JudgeNum;
     void Start()
     {
         go = this.gameObject;
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -41,15 +43,27 @@ public class critical : MonoBehaviour
             Judge();
         }
     }
+
+    public async UniTask<int> ReturnJudge()
+    {
+        while (MoveFlag)
+        {
+            await UniTask.Yield();
+        }
+        return JudgeNum;
+        
+    }
     void Judge()
     {
         float _ = this.rect.anchoredPosition.x;
         if (criticalPoint.anchoredPosition.x + criticalWidth > _ && criticalPoint.anchoredPosition.x - criticalWidth < _)
         {
+            JudgeNum = 1;
             Debug.Log("a");
         }
         else
         {
+            JudgeNum = 0;
             Debug.Log("b");
         }
         Destroy(this.gameObject);

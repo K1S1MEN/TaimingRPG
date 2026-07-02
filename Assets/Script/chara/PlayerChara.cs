@@ -6,6 +6,7 @@ using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
+using Cysharp.Threading.Tasks;
 
 [CreateAssetMenu(menuName = "PlayerChara")]
 public class PlayerChara : characterBase
@@ -55,18 +56,18 @@ public class PlayerChara : characterBase
 
     public virtual void SpecialAttack()
     {
-        TextChara(specialAttackText);
+        _ = TextChara(specialAttackText);
     }
 
     public virtual void EXSkill()
     {
 
-        TextChara(EXAttackText);
+        _ = TextChara(EXAttackText);
 
     }
     public virtual void Skill() { }
 
-    public async Task Line()
+    public async UniTask Line()
     {
         while (true)
         {
@@ -74,9 +75,13 @@ public class PlayerChara : characterBase
 
             while (isCoolTime)
             {
-                await Task.Yield();
+                await UniTask.Yield();
             }
             SelectAttack(bt.GiveEnemy());
+            if (BattleManager.finish)
+            {
+                break;
+            }
             
         }
     }
@@ -102,16 +107,16 @@ public class PlayerChara : characterBase
 
         }
     }
-    public async Task AttackCoolTime(int waitTime)
+    public async UniTask AttackCoolTime(int waitTime)
     {
         isCoolTime = true;
-        await Task.Delay(waitTime);
+        await UniTask.Delay(waitTime);
         isCoolTime = false;
     }
-    protected async void TextChara(string a)
+    protected async UniTask TextChara(string a)
     {
         charaText.text = a;
-        await Task.Delay(2000);
+        await UniTask.Delay(2000);
         charaText.text = "";
     }
 }
