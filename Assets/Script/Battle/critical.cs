@@ -9,25 +9,26 @@ public class critical : MonoBehaviour
 {
     public RectTransform criticalPoint;
     public float criticalWidth;
-    private float time = 0;
     public float max = 1f;
     public float speed = 0f;
     public float overLine = 1f;
     public RectTransform rect;
+    private Vector2 startPos;
     
     private GameObject go;
-    bool MoveFlag = true;
+    bool MoveFlag = false;
     float x;
     float y;
     int JudgeNum;
     void Start()
     {
         go = this.gameObject;
+        startPos = transform.position;
     }
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        time += Time.deltaTime;
+        
         if (criticalPoint.anchoredPosition.x + criticalWidth>=this.rect.anchoredPosition.x && MoveFlag)
         {
             this.rect.anchoredPosition = new Vector2(this.rect.anchoredPosition.x+1*speed, this.rect.anchoredPosition.y); 
@@ -46,10 +47,12 @@ public class critical : MonoBehaviour
 
     public async UniTask<int> ReturnJudge()
     {
+        MoveFlag = true;
         while (MoveFlag)
         {
             await UniTask.Yield();
         }
+        this.rect.anchoredPosition = startPos;
         return JudgeNum;
         
     }
