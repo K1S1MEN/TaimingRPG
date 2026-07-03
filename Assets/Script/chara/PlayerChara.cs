@@ -23,6 +23,7 @@ public class PlayerChara : characterBase
     public string notCost = "ƒGƒlƒ‹ƒM[‚ª‘«‚è‚È‚¢";
     private int playerSelect = 0;
     private bool isCoolTime = false;
+    private bool Judge = false;
     BattleManager bt = BattleManager.Instance;
     public void OnAttackButton()
     {
@@ -77,7 +78,9 @@ public class PlayerChara : characterBase
             {
                 await UniTask.Yield();
             }
+            Judge = await critical.Instance.ReturnJudge();
             SelectAttack(bt.GiveEnemy());
+
             if (BattleManager.finish)
             {
                 break;

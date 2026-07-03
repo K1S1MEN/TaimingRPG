@@ -7,6 +7,7 @@ using Cysharp.Threading.Tasks;
 
 public class critical : MonoBehaviour
 {
+    public static critical Instance;
     public RectTransform criticalPoint;
     public float criticalWidth;
     public float max = 1f;
@@ -19,7 +20,7 @@ public class critical : MonoBehaviour
     bool MoveFlag = false;
     float x;
     float y;
-    int JudgeNum;
+    bool     JudgeNum;
     void Start()
     {
         go = this.gameObject;
@@ -34,10 +35,6 @@ public class critical : MonoBehaviour
             this.rect.anchoredPosition = new Vector2(this.rect.anchoredPosition.x+1*speed, this.rect.anchoredPosition.y); 
             
         }
-        else
-        {
-            Destroy(this.gameObject);
-        }
         if (Input.GetKeyDown(KeyCode.Space)&& MoveFlag)
         {
             MoveFlag = false;
@@ -45,7 +42,7 @@ public class critical : MonoBehaviour
         }
     }
 
-    public async UniTask<int> ReturnJudge()
+    public async UniTask<bool> ReturnJudge()
     {
         MoveFlag = true;
         while (MoveFlag)
@@ -61,15 +58,14 @@ public class critical : MonoBehaviour
         float _ = this.rect.anchoredPosition.x;
         if (criticalPoint.anchoredPosition.x + criticalWidth > _ && criticalPoint.anchoredPosition.x - criticalWidth < _)
         {
-            JudgeNum = 1;
+            JudgeNum = true;
             Debug.Log("a");
         }
         else
         {
-            JudgeNum = 0;
+            JudgeNum = false;
             Debug.Log("b");
         }
-        Destroy(this.gameObject);
 
 
     }
