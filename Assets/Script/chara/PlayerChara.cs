@@ -7,12 +7,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 using Cysharp.Threading.Tasks;
+using UnityEngine.UIElements;
 
 [CreateAssetMenu(menuName = "PlayerChara")]
 public class PlayerChara : characterBase
 {
-    public Slider Slider;
-    [SerializeField] TextMeshProUGUI costText;
+    public UnityEngine.UI.Slider Slider;
     public TextMeshProUGUI charaText;
 
     [Header("TEXT")]
@@ -46,7 +46,10 @@ public class PlayerChara : characterBase
     }
     protected void Start()
     {
-        
+        Slider.maxValue = maxHP;
+        HP = maxHP;
+        Slider.minValue = 0;
+        Slider.value = HP;
     }
     public override  bool attack(characterBase target)
     {

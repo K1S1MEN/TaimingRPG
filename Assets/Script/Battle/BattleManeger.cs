@@ -17,9 +17,7 @@ public class BattleManager : MonoBehaviour
 
     public GameObject zainPrefab;
 
-    public List<PlayerChara> AttackLine = new List<PlayerChara>();
-
-    public int charaCoolTime = 1000;
+    
 
     private int SelectCharacterNum;
 
