@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
 [CreateAssetMenu(menuName = "Character Base")]
-public class characterBase : ScriptableObject
+public class characterBase : MonoBehaviour
 {
     public characterBase Prefab;
     [Header("value")]
