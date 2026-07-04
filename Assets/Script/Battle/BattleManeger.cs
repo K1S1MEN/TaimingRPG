@@ -42,6 +42,7 @@ public class BattleManager : MonoBehaviour
     {
          CreateEnemy();
         CreateParty();
+        _ = playerMember[0].Line();
     }
     
     private void FixedUpdate()

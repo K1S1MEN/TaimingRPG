@@ -73,8 +73,6 @@ public class PlayerChara : characterBase
 
     public async UniTask Line()
     {
-        while (true)
-        {
             Debug.Log("ÉãÅ[ÉvíÜ");
             await AttackCoolTime(1000);
 
@@ -85,13 +83,12 @@ public class PlayerChara : characterBase
             }
             Judge = await critical.Instance.ReturnJudge();
             SelectAttack(bt.GiveEnemy());
-
-            if (BattleManager.finish)
-            {
-                break;
-            }
             
-        }
+    }
+
+    public void OnClickNum(int a)
+    {
+        playerSelect = a;
     }
     public virtual void SelectAttack(characterBase target)
     {
