@@ -44,9 +44,11 @@ public class critical : MonoBehaviour
 
     public async UniTask<bool> ReturnJudge()
     {
+        Debug.Log("リターンジャッジ");
         MoveFlag = true;
         while (MoveFlag)
         {
+            Debug.Log("応答待ち");
             await UniTask.Yield();
         }
         this.rect.anchoredPosition = startPos;

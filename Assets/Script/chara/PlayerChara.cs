@@ -72,10 +72,12 @@ public class PlayerChara : characterBase
     {
         while (true)
         {
+            Debug.Log("ループ中");
             await AttackCoolTime(1000);
 
             while (isCoolTime)
             {
+                Debug.Log("クールタイム待ち");
                 await UniTask.Yield();
             }
             Judge = await critical.Instance.ReturnJudge();
@@ -113,6 +115,7 @@ public class PlayerChara : characterBase
     public async UniTask AttackCoolTime(int waitTime)
     {
         isCoolTime = true;
+        Debug.Log("クールタイム");
         await UniTask.Delay(waitTime);
         isCoolTime = false;
     }
