@@ -73,14 +73,14 @@ public class PlayerChara : characterBase
 
     public async UniTask Line()
     {
-            Debug.Log("ループ中");
+            
             await AttackCoolTime(1000);
 
             while (isCoolTime)
             {
                 Debug.Log("クールタイム待ち");
                 await UniTask.Yield();
-            }
+            }Debug.Log("ループ中");
             Judge = await critical.Instance.ReturnJudge();
             SelectAttack(bt.GiveEnemy());
             

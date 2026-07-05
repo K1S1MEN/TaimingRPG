@@ -26,6 +26,10 @@ public class critical : MonoBehaviour
         go = this.gameObject;
         startPos = transform.position;
     }
+    private void Awake()
+    {
+        Instance = this;
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
