@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEditor.U2D.Animation;
 using UnityEngine;
@@ -17,6 +18,9 @@ public class BattleManager : MonoBehaviour
 
     public GameObject zainPrefab;
 
+    public bool ActivFlag;
+
+    public int Count;
     
 
     private int SelectCharacterNum;
@@ -49,7 +53,34 @@ public class BattleManager : MonoBehaviour
     {
         
     }
+    public void Finish()
+    {
+        Debug.Log("I—¹"); 
+    }
+    public async Task Maneger()
+    {
+       ActivFlag = true;
+       _  = playerMember[0].Line();
 
+        while (true)
+        {
+            Debug.Log("ˆêƒ^[ƒ“–Ú");
+            if(!ActivFlag)
+            {
+                Finish();
+                return;
+            }
+            else
+            {
+                await playerMember[Count].Line();
+            }
+            
+            if (Count > playerMember.Count)
+            {
+                Count = 0;
+            }
+        }
+    }
     public characterBase GiveEnemy()
     {
         return enemyMember[Random.Range(0,enemyMember.Count)];
