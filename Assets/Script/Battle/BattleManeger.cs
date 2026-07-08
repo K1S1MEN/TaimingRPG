@@ -13,11 +13,12 @@ public class BattleManager : MonoBehaviour
 
     public static bool finish = false;
 
+
     public List<EnemyChara> enemyMember = new List<EnemyChara>();
 
     public List<PlayerChara> playerMember = new List<PlayerChara>();
-
-    public GameObject zainPrefab;
+    [SerializeField]
+    private zain zainPrefab;
 
     public bool ActivFlag;
 
@@ -31,11 +32,11 @@ public class BattleManager : MonoBehaviour
     bool AttackFlag = false;
     public void CreateParty()
     {
-        
+        playerMember.Add(Instantiate(zainPrefab));
     }
     public void CreateEnemy()
     {
-        enemyMember.Add(new AegisHenchman());
+        
     }
     private void Awake()
     {

@@ -10,7 +10,6 @@ public class AegisHenchman : EnemyChara
     new void Start()
     {
         Name = "AegisHenchman";
-        nameText.text = Name;
         HP = 400;
         maxHP = 400;
         id = 200;

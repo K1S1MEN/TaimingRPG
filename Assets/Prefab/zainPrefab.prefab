@@ -484,7 +484,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7299939617684816823}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerChara, Assembly-CSharp
         m_MethodName: OnClickNum
         m_Mode: 3
@@ -505,7 +505,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5256986710429038596}
-  - component: {fileID: 7299939617684816823}
   m_Layer: 0
   m_Name: zainPrefab
   m_TagString: Untagged
@@ -530,32 +529,6 @@ Transform:
   - {fileID: 7652105302010606475}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7299939617684816823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2591776298352153203}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c46efcea15bd3d84ba8ef27850364c41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Prefab: {fileID: 7299939617684816823}
-  Name: "\u30B6\u30A4\u30F3"
-  id: 1
-  HP: 500
-  maxHP: 500
-  dif: 50
-  Attack: 40
-  Log: "\u4E0D\u601D\u8B70\u306A\u30ED\u30DC\u30C3\u30C8"
-  Slider: {fileID: 649160389296416386}
-  charaText: {fileID: 8138709668420533898}
-  attackText: 
-  specialAttackText: 
-  EXAttackText: 
-  notCost: "\u30A8\u30CD\u30EB\u30AE\u30FC\u304C\u8DB3\u308A\u306A\u3044"
 --- !u!1 &3057567363986753892
 GameObject:
   m_ObjectHideFlags: 0
@@ -842,7 +815,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7299939617684816823}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerChara, Assembly-CSharp
         m_MethodName: OnClickNum
         m_Mode: 3
@@ -1384,7 +1357,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7299939617684816823}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerChara, Assembly-CSharp
         m_MethodName: OnClickNum
         m_Mode: 3

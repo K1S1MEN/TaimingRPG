@@ -17,9 +17,9 @@ public class PlayerChara : characterBase
 
     [Header("TEXT")]
 
-    public string attackText;
-    public string specialAttackText;
-    public string EXAttackText;
+    public string attackText = "ATTACK";
+    public string specialAttackText = "SKILL";
+    public string EXAttackText = "EX";
     public string notCost = "ƒGƒlƒ‹ƒM[‚ª‘«‚è‚È‚¢";
     private int playerSelect = 0;
     private bool isCoolTime = false;
