@@ -55,7 +55,6 @@ public class PlayerChara : characterBase
     {
         base.attack(target);
         return false;
-
     }
 
     public virtual void SpecialAttack()
@@ -73,17 +72,24 @@ public class PlayerChara : characterBase
 
     public async UniTask Line()
     {
-            
-            await AttackCoolTime(1000);
 
-            while (isCoolTime)
-            {
-                Debug.Log("クールタイム待ち");
-                await UniTask.Yield();
-            }Debug.Log("ループ中");
-            Judge = await critical.Instance.ReturnJudge();
-            SelectAttack(bt.GiveEnemy());
-            
+        await AttackCoolTime(1000);
+
+        while (isCoolTime)
+        {
+            Debug.Log("クールタイム待ち");
+            await UniTask.Yield();
+        }
+
+        Debug.Log("①CT終了");
+
+        Judge = await critical.Instance.ReturnJudge();
+
+        Debug.Log("②判定終了");
+
+        SelectAttack(bt.GiveEnemy());
+
+        Debug.Log("③攻撃終了");
     }
 
     public void OnClickNum(int a)
@@ -92,6 +98,7 @@ public class PlayerChara : characterBase
     }
     public virtual void SelectAttack(characterBase target)
     {
+        Debug.Log("SelectAttack開始");
         switch (playerSelect)
         {
             case 0:

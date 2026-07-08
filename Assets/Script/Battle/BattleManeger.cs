@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEditor.U2D.Animation;
 using UnityEngine;
@@ -21,6 +22,8 @@ public class BattleManager : MonoBehaviour
     public bool ActivFlag;
 
     public int Count;
+
+    public TextMeshProUGUI nowTurnText;
     
 
     private int SelectCharacterNum;
@@ -28,10 +31,7 @@ public class BattleManager : MonoBehaviour
     bool AttackFlag = false;
     public void CreateParty()
     {
-        playerMember.Add(PlayerItemBox.playerChara[0]);
-        playerMember.Add(PlayerItemBox.playerChara[1]);
-        playerMember.Add(PlayerItemBox.playerChara[2]);
-        enemyMember.Add(new AegisHenchman());
+        
     }
     public void CreateEnemy()
     {
@@ -46,7 +46,7 @@ public class BattleManager : MonoBehaviour
     {
          CreateEnemy();
         CreateParty();
-        _ = playerMember[0].Line();
+        _ = Maneger();
     }
     
     private void FixedUpdate()
@@ -60,7 +60,6 @@ public class BattleManager : MonoBehaviour
     public async Task Maneger()
     {
        ActivFlag = true;
-       _  = playerMember[0].Line();
 
         while (true)
         {
@@ -72,10 +71,11 @@ public class BattleManager : MonoBehaviour
             }
             else
             {
+                nowTurnText.text = "COOL TIME";
                 await playerMember[Count].Line();
             }
-            
-            if (Count > playerMember.Count)
+            Count++;
+            if (Count >= playerMember.Count)
             {
                 Count = 0;
             }

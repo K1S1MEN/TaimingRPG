@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
+using TMPro;
 
 public class critical : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class critical : MonoBehaviour
     public float overLine = 1f;
     public RectTransform rect;
     private Vector2 startPos;
+    public TextMeshProUGUI nowTurnText;
     
     private GameObject go;
     bool MoveFlag = false;
@@ -23,7 +25,6 @@ public class critical : MonoBehaviour
     bool     JudgeNum;
     void Start()
     {
-        go = this.gameObject;
         startPos = transform.position;
     }
     private void Awake()
@@ -31,7 +32,7 @@ public class critical : MonoBehaviour
         Instance = this;
     }
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         
         if (criticalPoint.anchoredPosition.x + criticalWidth>=this.rect.anchoredPosition.x && MoveFlag)
@@ -48,8 +49,8 @@ public class critical : MonoBehaviour
 
     public async UniTask<bool> ReturnJudge()
     {
-        Debug.Log("リターンジャッジ");
         MoveFlag = true;
+        nowTurnText.text = "ATTACK TIME";
         while (MoveFlag)
         {
             Debug.Log("応答待ち");
