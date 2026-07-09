@@ -71,7 +71,7 @@ public class critical : MonoBehaviour
         else
         {
             JudgeNum = false;
-            Debug.Log("b");
+            Debug.Log("NoCritical");
         }
 
 

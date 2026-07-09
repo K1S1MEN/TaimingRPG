@@ -17,10 +17,10 @@ public class characterBase : MonoBehaviour
     public string Log;
 
 
-    public virtual bool  attack(characterBase target)
+    public virtual void  attack(characterBase target)
     {
         AttackPoint = Attack;
-        return true;
+        target.Damage(AttackPoint);
     }
 
     public int Judgment()

@@ -24,7 +24,6 @@ public class PlayerChara : characterBase
     private int playerSelect = 0;
     private bool isCoolTime = false;
     private bool Judge = false;
-    BattleManager bt = BattleManager.Instance;
     public void OnAttackButton()
     {
         characterBase target = BattleManager.Instance.enemyMember[0];
@@ -50,11 +49,11 @@ public class PlayerChara : characterBase
         HP = maxHP;
         Slider.minValue = 0;
         Slider.value = HP;
+
     }
-    public override  bool attack(characterBase target)
+    public override  void attack(characterBase target)
     {
         base.attack(target);
-        return false;
     }
 
     public virtual void SpecialAttack()
@@ -87,7 +86,7 @@ public class PlayerChara : characterBase
 
         Debug.Log("‡A”»’èI—¹");
 
-        SelectAttack(bt.GiveEnemy());
+        SelectAttack(BattleManager.Instance.GiveEnemy());
 
         Debug.Log("‡BUŒ‚I—¹");
     }

@@ -17,8 +17,6 @@ public class BattleManager : MonoBehaviour
     public List<EnemyChara> enemyMember = new List<EnemyChara>();
 
     public List<PlayerChara> playerMember = new List<PlayerChara>();
-    [SerializeField]
-    private zain zainPrefab;
 
     public bool ActivFlag;
 
@@ -32,7 +30,7 @@ public class BattleManager : MonoBehaviour
     bool AttackFlag = false;
     public void CreateParty()
     {
-        playerMember.Add(Instantiate(zainPrefab));
+        
     }
     public void CreateEnemy()
     {
@@ -48,6 +46,7 @@ public class BattleManager : MonoBehaviour
          CreateEnemy();
         CreateParty();
         _ = Maneger();
+        Debug.Log(enemyMember[0]);
     }
     
     private void FixedUpdate()
@@ -82,8 +81,8 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
-    public characterBase GiveEnemy()
+    public EnemyChara GiveEnemy()
     {
-        return enemyMember[Random.Range(0,enemyMember.Count)];
+        return enemyMember[0];
     }
 }
