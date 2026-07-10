@@ -25,7 +25,7 @@ public class critical : MonoBehaviour
     bool     JudgeNum;
     void Start()
     {
-        startPos = transform.position;
+        startPos = new Vector2(rect.anchoredPosition.x, rect.anchoredPosition.y);
     }
     private void Awake()
     {
@@ -40,7 +40,7 @@ public class critical : MonoBehaviour
             this.rect.anchoredPosition = new Vector2(this.rect.anchoredPosition.x+1*speed, this.rect.anchoredPosition.y); 
             
         }
-        if (Input.GetKeyDown(KeyCode.Space)&& MoveFlag)
+        if (Input.GetKeyDown(KeyCode.Space)&& MoveFlag||Input.GetMouseButton(0)&&MoveFlag)
         {
             MoveFlag = false;
             Judge();
@@ -63,6 +63,8 @@ public class critical : MonoBehaviour
     void Judge()
     {
         float _ = this.rect.anchoredPosition.x;
+
+        this.rect.anchoredPosition = startPos;
         if (criticalPoint.anchoredPosition.x + criticalWidth > _ && criticalPoint.anchoredPosition.x - criticalWidth < _)
         {
             JudgeNum = true;

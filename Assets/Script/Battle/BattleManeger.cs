@@ -23,6 +23,8 @@ public class BattleManager : MonoBehaviour
     public int Count;
 
     public TextMeshProUGUI nowTurnText;
+
+    private int TurnCount;
     
 
     private int SelectCharacterNum;
@@ -63,7 +65,7 @@ public class BattleManager : MonoBehaviour
 
         while (true)
         {
-            Debug.Log("一ターン目");
+            Debug.Log(TurnCount+"ターン目");
             if(!ActivFlag)
             {
                 Finish();
@@ -74,15 +76,27 @@ public class BattleManager : MonoBehaviour
                 nowTurnText.text = "COOL TIME";
                 await playerMember[Count].Line();
             }
-            Count++;
-            if (Count >= playerMember.Count)
+            if (Count < playerMember.Count)
             {
                 Count = 0;
             }
+            else
+            {
+                Count++;
+            }
+            TurnCount++;
         }
     }
     public EnemyChara GiveEnemy()
     {
         return enemyMember[0];
+    }
+
+    private void CheckEnemy()
+    {
+        if (enemyMember.Count <= 0)
+        {
+            Finish();
+        }
     }
 }

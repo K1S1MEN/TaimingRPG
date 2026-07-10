@@ -12,23 +12,31 @@ using UnityEngine.UIElements;
 [CreateAssetMenu(menuName = "PlayerChara")]
 public class PlayerChara : characterBase
 {
+
     public UnityEngine.UI.Slider Slider;
     public TextMeshProUGUI charaText;
+    public TextMeshProUGUI AttackTypeText1;
+    public TextMeshProUGUI AttackTypeText2;
+    public TextMeshProUGUI AttackTypeText3;
 
     [Header("TEXT")]
 
-    public string attackText = "ATTACK";
-    public string specialAttackText = "SKILL";
-    public string EXAttackText = "EX";
+    public string attackText = "ATTACK1";
+    public string attackText2 = "ATTACK2";
+    public string attackText3 = "ATTACK3";
+   
     public string notCost = "エネルギーが足りない";
     private int playerSelect = 0;
     private bool isCoolTime = false;
     private bool Judge = false;
-    public void OnAttackButton()
-    {
-        characterBase target = BattleManager.Instance.enemyMember[0];
+    public float countDown = 2.0f;
+    public TextMeshProUGUI timeText;
+    public GameObject timeObject;
 
-        attack(target);
+    private bool countDownFlag = false;
+    public void OnAttackButton(int a)
+    {
+        playerSelect = a;
     }
     private void Update()
     {
@@ -42,6 +50,24 @@ public class PlayerChara : characterBase
             playerSelect++;
         }
 
+        if (countDownFlag)
+        {
+            countDown -= Time.deltaTime;
+            timeText.text = countDown.ToString("F1");
+
+            if (countDown <= 0)
+            {
+               countDownFlag = false;
+               timeObject.SetActive(false);
+            }
+        }
+
+    }
+
+    private void StartCount()
+    {
+        countDownFlag = true;
+        timeObject.SetActive(true);
     }
     protected void Start()
     {
@@ -49,6 +75,9 @@ public class PlayerChara : characterBase
         HP = maxHP;
         Slider.minValue = 0;
         Slider.value = HP;
+        AttackTypeText1.text = attackText;
+        AttackTypeText2.text = attackText2;
+        AttackTypeText3.text = attackText3;
 
     }
     public override  void attack(characterBase target)
@@ -56,15 +85,15 @@ public class PlayerChara : characterBase
         base.attack(target);
     }
 
-    public virtual void SpecialAttack()
+    public virtual void Attack2()
     {
-        _ = TextChara(specialAttackText);
+        _ = TextChara(attackText2);
     }
 
-    public virtual void EXSkill()
+    public virtual void Attack3()
     {
 
-        _ = TextChara(EXAttackText);
+        _ = TextChara(attackText3);
 
     }
     public virtual void Skill() { }
@@ -72,7 +101,7 @@ public class PlayerChara : characterBase
     public async UniTask Line()
     {
 
-        await AttackCoolTime(1000);
+        await AttackCoolTime(2000);
 
         while (isCoolTime)
         {
@@ -105,12 +134,12 @@ public class PlayerChara : characterBase
                 attack(target);
                 break;
             case 1:
-                Debug.Log("SKILL");
-                Skill();
+                Debug.Log("攻撃２");
+                Attack2();
                 break;
             case 2:
-                Debug.Log("EX");
-                EXSkill();
+                Debug.Log("攻撃3");
+                Attack3();
                 break;
             default:
                 Debug.LogError("指定されてない値が入ってます");
@@ -118,7 +147,7 @@ public class PlayerChara : characterBase
 
         }
     }
-    public async UniTask AttackCoolTime(int waitTime)
+    public async UniTask AttackCoolTime(int waitTime = 2000)
     {
         isCoolTime = true;
         Debug.Log("クールタイム");

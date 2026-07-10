@@ -6,6 +6,7 @@ public class zain : PlayerChara
 {
     new void Start()
     {
+        base.Start();
         Slider.maxValue = maxHP;
         HP = maxHP;
         Slider.minValue = 0;

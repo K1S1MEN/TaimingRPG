@@ -31,5 +31,10 @@ public class EnemyChara : characterBase
     {
         base.Damage(d);
         HPSlider.value = HP;
+        if (HP <= 0)
+        {
+            BattleManager.Instance.enemyMember.Remove(this);
+            Destroy(this.gameObject);
+        }
     }
 }
