@@ -57,7 +57,8 @@ public class BattleManager : MonoBehaviour
     }
     public void Finish()
     {
-        Debug.Log("I—¹"); 
+
+        Debug.LogError("‚±‚Ìæ‚Ìˆ—‚Í‚Ü‚¾o—ˆ‚Ä‚È‚¢"); 
     }
     public async Task Maneger()
     {
