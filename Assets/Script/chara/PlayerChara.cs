@@ -45,7 +45,7 @@ public class PlayerChara : characterBase
         {
             playerSelect--;
         }
-        if (Input.GetKeyUp(KeyCode.DownArrow) && playerSelect < 3 && isCoolTime)
+        if (Input.GetKeyUp(KeyCode.DownArrow) && playerSelect < 2 && isCoolTime)
         {
             playerSelect++;
         }
@@ -105,19 +105,13 @@ public class PlayerChara : characterBase
 
         while (isCoolTime)
         {
-            Debug.Log("クールタイム待ち");
             await UniTask.Yield();
         }
 
-        Debug.Log("①CT終了");
-
         Judge = await critical.Instance.ReturnJudge();
 
-        Debug.Log("②判定終了");
 
         SelectAttack(BattleManager.Instance.GiveEnemy());
-
-        Debug.Log("③攻撃終了");
     }
 
     public void OnClickNum(int a)
@@ -126,7 +120,6 @@ public class PlayerChara : characterBase
     }
     public virtual void SelectAttack(characterBase target)
     {
-        Debug.Log("SelectAttack開始");
         switch (playerSelect)
         {
             case 0:
@@ -142,7 +135,7 @@ public class PlayerChara : characterBase
                 Attack3();
                 break;
             default:
-                Debug.LogError("指定されてない値が入ってます");
+                Debug.LogError("指定されてない値が入ってます（"+playerSelect+")");
                 break;
 
         }
@@ -150,7 +143,7 @@ public class PlayerChara : characterBase
     public async UniTask AttackCoolTime(int waitTime = 2000)
     {
         isCoolTime = true;
-        Debug.Log("クールタイム");
+
         await UniTask.Delay(waitTime);
         isCoolTime = false;
     }

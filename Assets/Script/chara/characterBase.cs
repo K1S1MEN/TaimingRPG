@@ -39,7 +39,6 @@ public class characterBase : MonoBehaviour
 
     protected virtual void Die()
     {
-
         Destroy(this);
     }
 

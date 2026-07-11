@@ -66,7 +66,6 @@ public class BattleManager : MonoBehaviour
 
         while (true)
         {
-            Debug.Log(TurnCount+"ƒ^[ƒ“–Ú");
             if(!ActivFlag)
             {
                 Finish();
