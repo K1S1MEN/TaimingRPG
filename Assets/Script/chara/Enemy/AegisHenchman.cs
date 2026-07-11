@@ -19,8 +19,8 @@ public class AegisHenchman : EnemyChara
 
         
     }
-    public override void attack(characterBase target)
+    public override void attack(characterBase target, bool Judge)
     {
-        base.attack(target);
+        base.attack(target,Judge);
     }
 }

@@ -29,7 +29,6 @@ public class BattleManager : MonoBehaviour
 
     private int SelectCharacterNum;
 
-    bool AttackFlag = false;
     public void CreateParty()
     {
         
@@ -48,7 +47,6 @@ public class BattleManager : MonoBehaviour
          CreateEnemy();
         CreateParty();
         _ = Maneger();
-        Debug.Log(enemyMember[0]);
     }
     
     private void FixedUpdate()
@@ -66,7 +64,7 @@ public class BattleManager : MonoBehaviour
 
         while (true)
         {
-            if(!ActivFlag)
+            if(enemyMember.Count <= 0)
             {
                 Finish();
                 return;

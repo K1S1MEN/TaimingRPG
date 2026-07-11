@@ -53,7 +53,6 @@ public class critical : MonoBehaviour
         nowTurnText.text = "ATTACK TIME";
         while (MoveFlag)
         {
-            Debug.Log("‰ž“š‘Ò‚¿");
             await UniTask.Yield();
         }
         this.rect.anchoredPosition = startPos;

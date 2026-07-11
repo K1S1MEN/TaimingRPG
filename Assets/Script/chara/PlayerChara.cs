@@ -28,7 +28,6 @@ public class PlayerChara : characterBase
     public string notCost = "ƒGƒlƒ‹ƒM[‚ª‘«‚è‚È‚¢";
     private int playerSelect = 0;
     private bool isCoolTime = false;
-    private bool Judge = false;
     public float countDown = 2.0f;
     public TextMeshProUGUI timeText;
     public GameObject timeObject;
@@ -41,7 +40,7 @@ public class PlayerChara : characterBase
     private void Update()
     {
 
-        if (Input.GetKeyUp(KeyCode.UpArrow) && playerSelect < 0 && isCoolTime)
+        if (Input.GetKeyUp(KeyCode.UpArrow) && playerSelect > 0 && isCoolTime)
         {
             playerSelect--;
         }
@@ -66,6 +65,10 @@ public class PlayerChara : characterBase
 
     private void StartCount()
     {
+        Slider.maxValue = maxHP;
+        HP = maxHP;
+        Slider.minValue = 0;
+        Slider.value = HP;
         countDownFlag = true;
         timeObject.SetActive(true);
     }
@@ -80,17 +83,18 @@ public class PlayerChara : characterBase
         AttackTypeText3.text = attackText3;
 
     }
-    public override  void attack(characterBase target)
+    public override  void attack(characterBase target,bool Judge)
     {
-        base.attack(target);
+        base.attack(target, Judge);
+        _ = TextChara(attackText);
     }
 
-    public virtual void Attack2()
+    public virtual void Attack2(characterBase target, bool Judge)
     {
         _ = TextChara(attackText2);
     }
 
-    public virtual void Attack3()
+    public virtual void Attack3(characterBase target, bool Judge)
     {
 
         _ = TextChara(attackText3);
@@ -108,31 +112,31 @@ public class PlayerChara : characterBase
             await UniTask.Yield();
         }
 
-        Judge = await critical.Instance.ReturnJudge();
+        bool Judge = await critical.Instance.ReturnJudge();
 
 
-        SelectAttack(BattleManager.Instance.GiveEnemy());
+        SelectAttack(BattleManager.Instance.GiveEnemy(),Judge);
     }
 
     public void OnClickNum(int a)
     {
         playerSelect = a;
     }
-    public virtual void SelectAttack(characterBase target)
+    public virtual void SelectAttack(characterBase target,bool Judge)
     {
         switch (playerSelect)
         {
             case 0:
-                Debug.Log("’Êí");
-                attack(target);
+                Debug.Log("UŒ‚‚P");
+                attack(target, Judge);
                 break;
             case 1:
                 Debug.Log("UŒ‚‚Q");
-                Attack2();
+                Attack2(target, Judge);
                 break;
             case 2:
                 Debug.Log("UŒ‚3");
-                Attack3();
+                Attack3(target, Judge);
                 break;
             default:
                 Debug.LogError("w’è‚³‚ê‚Ä‚È‚¢’l‚ª“ü‚Á‚Ä‚Ü‚·i"+playerSelect+")");
