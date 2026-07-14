@@ -87,7 +87,11 @@ public class BattleManager : MonoBehaviour
     }
     public EnemyChara GiveEnemy()
     {
-        return enemyMember[0];
+        return enemyMember[Random.Range(0,enemyMember.Count)];
+    }
+    public PlayerChara GivePlayer()
+    {
+        return playerMember[Random.Range(0, playerMember.Count)];
     }
 
     private void CheckEnemy()

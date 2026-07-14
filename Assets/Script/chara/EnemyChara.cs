@@ -4,14 +4,14 @@ using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
+using Cysharp.Threading.Tasks;
+using UnityEngine.UIElements;
 public class EnemyChara : characterBase
 {
-    public Slider HPSlider;
+    public UnityEngine.UI.Slider HPSlider;
     public int EXP;
-    public int coolTime;
+    public int coolTime = 10000;
     public TextMeshProUGUI charaText;
-
     protected void Start()
     {
         //HPSlider = GetComponentInChildren<Slider>();
@@ -19,6 +19,7 @@ public class EnemyChara : characterBase
         HP = maxHP; 
         HPSlider.minValue = 0;
         HPSlider.value = HP;
+        _ = Loop();
     }
     protected async Task TextChara(string a)
     {
@@ -36,5 +37,17 @@ public class EnemyChara : characterBase
             BattleManager.Instance.enemyMember.Remove(this);
             Destroy(this.gameObject);
         }
+
+    }
+
+    public void Update()
+    {
+        
+    }
+
+    private async UniTask Loop()
+    {
+        await UniTask.Delay(coolTime);
+        attack(BattleManager.Instance.GivePlayer(),false);
     }
 }
