@@ -63,6 +63,12 @@ public class PlayerChara : characterBase
 
     }
 
+    public override void Damage(int ATP)
+    {
+        Slider.value = HP;
+        base.Damage(ATP);
+    }
+
     private void StartCount()
     {
         Slider.maxValue = maxHP;

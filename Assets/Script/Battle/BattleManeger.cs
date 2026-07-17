@@ -37,6 +37,31 @@ public class BattleManager : MonoBehaviour
     {
         
     }
+
+    private void StartEnemyAttack()
+    {
+        for (int i = 0; i < enemyMember.Count; i++)
+        {
+            _ = EnemyAttack(i);
+        }
+    }
+
+    private async UniTask EnemyAttack(int i)
+    {
+        while (true)
+        {
+            Debug.Log("エネミーの攻撃");
+            await enemyMember[i].Loop();
+            
+            if (playerMember.Count < 0)
+            {
+                Debug.Log("終わり");
+                Finish();
+                break;
+            }
+            Debug.Log("位置ループ終わり");
+        }
+    }
     private void Awake()
     {
         Instance = this;
@@ -44,9 +69,8 @@ public class BattleManager : MonoBehaviour
 
     private void Start()
     {
-         CreateEnemy();
-        CreateParty();
         _ = Maneger();
+        StartEnemyAttack();
     }
     
     private void FixedUpdate()

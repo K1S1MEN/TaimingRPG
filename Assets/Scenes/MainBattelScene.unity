@@ -504,8 +504,6 @@ MonoBehaviour:
   - {fileID: 651833311}
   playerMember:
   - {fileID: 7081633269474124162}
-  - {fileID: 11400000, guid: 811827b9ab340e34fa4ad02d7df7bce5, type: 2}
-  - {fileID: 11400000, guid: f3b72a8382439344cbe78cf1a4c6829b, type: 2}
   ActivFlag: 0
   Count: 0
   nowTurnText: {fileID: 1847834631}
@@ -1422,8 +1420,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2799605499468012375, guid: 2894a7affab690a4e8f44f5b096e82dc, type: 3}
+      propertyPath: dif
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799605499468012375, guid: 2894a7affab690a4e8f44f5b096e82dc, type: 3}
       propertyPath: coolTime
-      value: 100
+      value: 2014
       objectReference: {fileID: 0}
     - target: {fileID: 3829284083163032978, guid: 2894a7affab690a4e8f44f5b096e82dc, type: 3}
       propertyPath: m_LocalPosition.x

@@ -19,7 +19,6 @@ public class EnemyChara : characterBase
         HP = maxHP; 
         HPSlider.minValue = 0;
         HPSlider.value = HP;
-        _ = Loop();
     }
     protected async Task TextChara(string a)
     {
@@ -45,9 +44,9 @@ public class EnemyChara : characterBase
         
     }
 
-    private async UniTask Loop()
+    public async UniTask Loop()
     {
-        await UniTask.Delay(coolTime);
-        attack(BattleManager.Instance.GivePlayer(),false);
+            await UniTask.Delay(1000);
+        attack(BattleManager.Instance.GivePlayer(), false);
     }
 }
