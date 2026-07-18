@@ -35,8 +35,7 @@ public class PlayerChara : characterBase
     private bool countDownFlag = false;
     public void OnAttackButton(int a)
     {
-        if (countDownFlag) { playerSelect = a; }
-        
+        playerSelect = a;        
     }
     private void Update()
     {
