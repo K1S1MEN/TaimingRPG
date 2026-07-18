@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class zain : PlayerChara
 {
-    Animator animator;
-    new void Start()
-    {
-        base.Start();
-        animator = GetComponent<Animator>();
-    }
 
     
 }

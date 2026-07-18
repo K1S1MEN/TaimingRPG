@@ -18,6 +18,7 @@ public class PlayerChara : characterBase
     public TextMeshProUGUI AttackTypeText1;
     public TextMeshProUGUI AttackTypeText2;
     public TextMeshProUGUI AttackTypeText3;
+    public Animator animator;
 
     [Header("TEXT")]
 
@@ -25,7 +26,6 @@ public class PlayerChara : characterBase
     public string attackText2 = "ATTACK2";
     public string attackText3 = "ATTACK3";
    
-    public string notCost = "ÉGÉlÉãÉMÅ[Ç™ë´ÇËÇ»Ç¢";
     private int playerSelect = 0;
     private bool isCoolTime = false;
     public float countDown = 2.0f;
@@ -35,7 +35,8 @@ public class PlayerChara : characterBase
     private bool countDownFlag = false;
     public void OnAttackButton(int a)
     {
-        playerSelect = a;
+        if (countDownFlag) { playerSelect = a; }
+        
     }
     private void Update()
     {
@@ -87,26 +88,29 @@ public class PlayerChara : characterBase
         AttackTypeText1.text = attackText;
         AttackTypeText2.text = attackText2;
         AttackTypeText3.text = attackText3;
+        animator = GetComponent<Animator>();
 
     }
     public override  void attack(characterBase target,bool Judge)
     {
+        animator.SetTrigger("attack1");
         base.attack(target, Judge);
         _ = TextChara(attackText);
     }
 
     public virtual void Attack2(characterBase target, bool Judge)
     {
+        animator.SetTrigger("attack2");
         _ = TextChara(attackText2);
     }
 
     public virtual void Attack3(characterBase target, bool Judge)
     {
+        animator.SetTrigger("attack3");
 
         _ = TextChara(attackText3);
 
     }
-    public virtual void Skill() { }
 
     public async UniTask Line()
     {
@@ -124,10 +128,6 @@ public class PlayerChara : characterBase
         SelectAttack(BattleManager.Instance.GiveEnemy(),Judge);
     }
 
-    public void OnClickNum(int a)
-    {
-        playerSelect = a;
-    }
     public virtual void SelectAttack(characterBase target,bool Judge)
     {
         switch (playerSelect)
