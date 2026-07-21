@@ -14,9 +14,8 @@ public class EnemyChara : characterBase
     public TextMeshProUGUI charaText;
     protected void Start()
     {
-        //HPSlider = GetComponentInChildren<Slider>();
         HPSlider.maxValue = maxHP;
-        HP = maxHP; 
+        HP = maxHP;
         HPSlider.minValue = 0;
         HPSlider.value = HP;
     }
@@ -41,12 +40,12 @@ public class EnemyChara : characterBase
 
     public void Update()
     {
-        
+
     }
 
     public async UniTask Loop()
     {
-            await UniTask.Delay(1000);
+        await UniTask.Delay(1000);
         attack(BattleManager.Instance.GivePlayer(), false);
     }
 }

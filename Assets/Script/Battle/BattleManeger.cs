@@ -25,17 +25,17 @@ public class BattleManager : MonoBehaviour
     public TextMeshProUGUI nowTurnText;
 
     private int TurnCount;
-    
+
 
     private int SelectCharacterNum;
 
     public void CreateParty()
     {
-        
+
     }
     public void CreateEnemy()
     {
-        
+
     }
 
     private void StartEnemyAttack()
@@ -50,16 +50,13 @@ public class BattleManager : MonoBehaviour
     {
         while (true)
         {
-            Debug.Log("エネミーの攻撃");
             await enemyMember[i].Loop();
-            
+
             if (playerMember.Count < 0)
             {
-                Debug.Log("終わり");
                 Finish();
                 break;
             }
-            Debug.Log("位置ループ終わり");
         }
     }
     private void Awake()
@@ -72,23 +69,23 @@ public class BattleManager : MonoBehaviour
         _ = Maneger();
         StartEnemyAttack();
     }
-    
+
     private void FixedUpdate()
     {
-        
+
     }
     public void Finish()
     {
 
-        Debug.LogError("この先の処理はまだ出来てない"); 
+        Debug.LogError("この先の処理はまだ出来てない");
     }
     public async Task Maneger()
     {
-       ActivFlag = true;
+        ActivFlag = true;
 
         while (true)
         {
-            if(enemyMember.Count <= 0)
+            if (enemyMember.Count <= 0)
             {
                 Finish();
                 return;
@@ -111,7 +108,7 @@ public class BattleManager : MonoBehaviour
     }
     public EnemyChara GiveEnemy()
     {
-        return enemyMember[Random.Range(0,enemyMember.Count)];
+        return enemyMember[Random.Range(0, enemyMember.Count)];
     }
     public PlayerChara GivePlayer()
     {

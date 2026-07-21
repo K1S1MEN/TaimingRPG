@@ -67,12 +67,11 @@ public class critical : MonoBehaviour
         if (criticalPoint.anchoredPosition.x + criticalWidth > _ && criticalPoint.anchoredPosition.x - criticalWidth < _)
         {
             JudgeNum = true;
-            Debug.Log("a");
+
         }
         else
         {
             JudgeNum = false;
-            Debug.Log("NoCritical");
         }
 
 

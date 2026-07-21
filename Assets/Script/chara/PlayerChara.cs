@@ -132,15 +132,12 @@ public class PlayerChara : characterBase
         switch (playerSelect)
         {
             case 0:
-                Debug.Log("UŒ‚‚P");
                 attack(target, Judge);
                 break;
             case 1:
-                Debug.Log("UŒ‚‚Q");
                 Attack2(target, Judge);
                 break;
             case 2:
-                Debug.Log("UŒ‚3");
                 Attack3(target, Judge);
                 break;
             default:
