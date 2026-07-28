@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
 using TMPro;
+using System;
 
 public class critical : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class critical : MonoBehaviour
     public RectTransform rect;
     private Vector2 startPos;
     public TextMeshProUGUI nowTurnText;
-    
+
     private GameObject go;
     bool MoveFlag = false;
     float x;
@@ -43,19 +44,21 @@ public class critical : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)&& MoveFlag||Input.GetMouseButton(0)&&MoveFlag)
         {
             MoveFlag = false;
+            
             Judge();
         }
     }
 
     public async UniTask<bool> ReturnJudge()
     {
+        this.rect.anchoredPosition = startPos;
+
         MoveFlag = true;
-        nowTurnText.text = "ATTACK TIME";
         while (MoveFlag)
         {
             await UniTask.Yield();
         }
-        this.rect.anchoredPosition = startPos;
+        
         return JudgeNum;
         
     }
@@ -63,7 +66,7 @@ public class critical : MonoBehaviour
     {
         float _ = this.rect.anchoredPosition.x;
 
-        this.rect.anchoredPosition = startPos;
+        
         if (criticalPoint.anchoredPosition.x + criticalWidth > _ && criticalPoint.anchoredPosition.x - criticalWidth < _)
         {
             JudgeNum = true;
