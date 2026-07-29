@@ -122,4 +122,6 @@ public class BattleManager : MonoBehaviour
             Finish();
         }
     }
+
+
 }
