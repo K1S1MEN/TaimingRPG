@@ -44,6 +44,9 @@ TagManager:
   - name: bg
     uniqueID: 669082651
     locked: 0
+  - name: some
+    uniqueID: 3589011937
+    locked: 0
   - name: chara
     uniqueID: 3623088255
     locked: 0
