@@ -8,15 +8,12 @@ public class EncounterSystem : MonoBehaviour
 {
     static List<int> enemyCharas = new List<int>();
 
-    void DecideEnemyChara()
+    public void StartBattle()
     {
-        for (int i = 0; i < Random.Range(0,3); i++)
+        for (int i = 0; i < Random.Range(0, 3); i++)
         {
-            enemyCharas.Add(Random.Range(0,2));
+            enemyCharas.Add(Random.Range(0, 2));
         }
-    }
-    void StartBattle()
-    {
         SceneManager.LoadScene("MainBattleScene");
     }
 }
