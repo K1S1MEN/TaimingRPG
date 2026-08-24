@@ -41,7 +41,7 @@ public class critical : MonoBehaviour
             this.rect.anchoredPosition = new Vector2(this.rect.anchoredPosition.x+1*speed, this.rect.anchoredPosition.y); 
             
         }
-        if (Input.GetKeyDown(KeyCode.Space)&& MoveFlag||Input.GetMouseButton(0)&&MoveFlag)
+        if (Input.GetKeyDown(KeyCode.Space)&& MoveFlag||Input.GetMouseButton(0)&&MoveFlag || criticalPoint.anchoredPosition.x + criticalWidth <= rect.anchoredPosition.x)
         {
             MoveFlag = false;
             

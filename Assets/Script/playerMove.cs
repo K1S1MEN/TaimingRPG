@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Rendering;
+using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class playerMove : MonoBehaviour
 {
-    
+    public Animator animator;
+
     public float speed = 3;
     Rigidbody rb;
     void Start()
@@ -26,9 +28,10 @@ public class playerMove : MonoBehaviour
         {
             if (Random.Range(0, 150) == 0)
             {
-                PlayerItemBox.playerStage = SceneManager.GetActiveScene().name;
-                PlayerItemBox.playerPosition = new Vector2(x,y);
+                PlayerInfo.playerStage = SceneManager.GetActiveScene().name;
+                PlayerInfo.playerPosition = new Vector2(x,y);
                 Debug.Log("エンカウント！！");
+                EncounterSystem.StartBattle();
             }
 
         }
