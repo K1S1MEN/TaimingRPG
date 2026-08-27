@@ -4,6 +4,8 @@ using UnityEditor.Rendering;
 using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 
 public class playerMove : MonoBehaviour
 {
@@ -31,9 +33,17 @@ public class playerMove : MonoBehaviour
                 PlayerInfo.playerStage = SceneManager.GetActiveScene().name;
                 PlayerInfo.playerPosition = new Vector2(x,y);
                 Debug.Log("エンカウント！！");
-                EncounterSystem.StartBattle();
+                _ = encount();
             }
 
         }
+    }
+
+    private async UniTask encount()
+    {
+
+        await Fade.Instance.FadeIn();
+        EncounterSystem.StartBattle();
+
     }
 }

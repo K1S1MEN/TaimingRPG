@@ -1,19 +1,48 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using UnityEditor.Rendering;
 using UnityEngine.UI;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 
 public class Fade : MonoBehaviour
 {
-    public Animator animator;
+    [SerializeField] Image image;
+    public float fadeSpeed;
+    bool In = false;
+    bool Out = false;
+    public static Fade Instance { get; private set; }
 
-    private void InCurtain()
+    private void Awake()
     {
-        animator.SetTrigger("In");
+        Instance = this;
     }
 
-    private void OutCurtain()
+    public async Task FadeOut()
     {
-        animator.SetTrigger("Out");
+        while (image.color.a < 1.0f)
+        {
+            Color c = image.color;
+            c.a += fadeSpeed * Time.deltaTime;
+            c.a = Mathf.Clamp01(c.a);
+            image.color = c;
+
+            await Task.Yield();
+        }
+    }
+
+    public async Task FadeIn()
+    {
+        while (image.color.a > 0.0f)
+        {
+            Color c = image.color;
+            c.a -= fadeSpeed * Time.deltaTime;
+            c.a = Mathf.Clamp01(c.a);
+            image.color = c;
+
+            await Task.Yield();
+        }
     }
 }
