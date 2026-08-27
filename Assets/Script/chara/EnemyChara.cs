@@ -6,12 +6,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using Cysharp.Threading.Tasks;
 using UnityEngine.UIElements;
+using Unity.VisualScripting;
 public class EnemyChara : characterBase
 {
     public UnityEngine.UI.Slider HPSlider;
     public int EXP;
     public int coolTime = 10000;
     public TextMeshProUGUI charaText;
+    
     protected void Start()
     {
         HPSlider.maxValue = maxHP;
@@ -45,7 +47,7 @@ public class EnemyChara : characterBase
 
     public async UniTask Loop()
     {
-        await UniTask.Delay(1000);
+        await UniTask.Delay(coolTime);
         attack(BattleManager.Instance.GivePlayer(), false);
     }
 }

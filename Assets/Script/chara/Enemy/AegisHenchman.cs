@@ -12,10 +12,12 @@ public class AegisHenchman : EnemyChara
         Name = "AegisHenchman";
         HP = 400;
         maxHP = 400;
-        id = 200;
+        id = 1;
         Attack = 15;
         Log = "‚¿‚Ñ";
+        coolTime = 1000;
         base.Start();
+        
 
         
     }

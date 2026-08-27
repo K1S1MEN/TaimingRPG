@@ -980,8 +980,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -671879041
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -894310866, guid: 4cd70bd7c2124604db9fbd47e05cf6df, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1003,7 +1003,7 @@ Transform:
   m_GameObject: {fileID: 1680618119}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.43, y: 1.1799998, z: 0.011955315}
+  m_LocalPosition: {x: 11.26, y: 1.1799998, z: 0.011955315}
   m_LocalScale: {x: 4.9711, y: 4.514, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1623,7 +1623,7 @@ PrefabInstance:
     - {fileID: 4731620810552479867, guid: 2894a7affab690a4e8f44f5b096e82dc, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3829284083163032978, guid: 2894a7affab690a4e8f44f5b096e82dc, type: 3}
-      insertIndex: -1
+      insertIndex: 0
       addedObject: {fileID: 1680618122}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2894a7affab690a4e8f44f5b096e82dc, type: 3}

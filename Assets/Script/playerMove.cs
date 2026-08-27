@@ -33,15 +33,14 @@ public class playerMove : MonoBehaviour
                 PlayerInfo.playerStage = SceneManager.GetActiveScene().name;
                 PlayerInfo.playerPosition = new Vector2(x,y);
                 Debug.Log("エンカウント！！");
-                _ = encount();
+                encount();
             }
 
         }
     }
 
-    private async UniTask encount()
+    private async void encount()
     {
-
         await Fade.Instance.FadeIn();
         EncounterSystem.StartBattle();
 

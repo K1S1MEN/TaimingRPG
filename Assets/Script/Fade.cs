@@ -20,29 +20,29 @@ public class Fade : MonoBehaviour
         Instance = this;
     }
 
-    public async Task FadeOut()
+    public async UniTask FadeOut()
     {
-        while (image.color.a < 1.0f)
+        while (image.color.a > 0.99f)
+        {
+            Color c = image.color;
+            c.a += fadeSpeed * Time.deltaTime;
+            c.a = Mathf.Clamp01(c.a);
+            image.color = c;
+            await UniTask.Yield();
+        }
+    }
+
+    public async UniTask FadeIn()
+    {
+        while (image.color.a < 0.99f)
         {
             Color c = image.color;
             c.a += fadeSpeed * Time.deltaTime;
             c.a = Mathf.Clamp01(c.a);
             image.color = c;
 
-            await Task.Yield();
-        }
-    }
+            await UniTask.Yield();
 
-    public async Task FadeIn()
-    {
-        while (image.color.a > 0.0f)
-        {
-            Color c = image.color;
-            c.a -= fadeSpeed * Time.deltaTime;
-            c.a = Mathf.Clamp01(c.a);
-            image.color = c;
-
-            await Task.Yield();
         }
     }
 }
