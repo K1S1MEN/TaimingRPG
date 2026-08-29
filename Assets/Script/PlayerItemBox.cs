@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class PlayerInfo
 {
-    public static string playerStage;
+    public static string playerStage = "S";
     public static Vector2 playerPosition;
     public static PlayerChara[] playerChara = new PlayerChara[3];
 }

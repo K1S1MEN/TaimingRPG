@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class yokoyama : EnemyChara
+public class AeigisBlock : EnemyChara
 {
     new void Start()
     {

@@ -32,7 +32,6 @@ public class playerMove : MonoBehaviour
             {
                 PlayerInfo.playerStage = SceneManager.GetActiveScene().name;
                 PlayerInfo.playerPosition = new Vector2(x,y);
-                Debug.Log("エンカウント！！");
                 encount();
             }
 

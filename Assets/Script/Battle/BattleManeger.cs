@@ -6,6 +6,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEditor.U2D.Animation;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BattleManager : MonoBehaviour
 {
@@ -54,7 +55,7 @@ public class BattleManager : MonoBehaviour
 
             if (playerMember.Count < 0)
             {
-                Finish();
+                _ =  Finish();
                 break;
             }
         }
@@ -66,6 +67,7 @@ public class BattleManager : MonoBehaviour
 
     private void Start()
     {
+        _ = Fade.Instance.FadeOut();
         _ = Maneger();
         StartEnemyAttack();
     }
@@ -74,10 +76,10 @@ public class BattleManager : MonoBehaviour
     {
 
     }
-    public void Finish()
+    public async Task Finish()
     {
-
-        Debug.LogError("‚±‚Ìæ‚Ìˆ—‚Í‚Ü‚¾o—ˆ‚Ä‚È‚¢");
+        await Fade.Instance.FadeIn();
+        SceneManager.LoadScene(PlayerInfo.playerStage);
     }
     public async Task Maneger()
     {
@@ -87,7 +89,7 @@ public class BattleManager : MonoBehaviour
         {
             if (enemyMember.Count <= 0)
             {
-                Finish();
+                _ = Finish();
                 return;
             }
             else
@@ -119,7 +121,7 @@ public class BattleManager : MonoBehaviour
     {
         if (enemyMember.Count <= 0)
         {
-            Finish();
+            _ = Finish();
         }
     }
 
