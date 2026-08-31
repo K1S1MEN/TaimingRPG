@@ -26,17 +26,20 @@ public class BattleManager : MonoBehaviour
     public TextMeshProUGUI nowTurnText;
 
     private int TurnCount;
-
-
-    private int SelectCharacterNum;
-
-    public void CreateParty()
+    
+    void CreateParty()
     {
-
+        GameObject playerPrefab = Resources.Load<GameObject>("Prefabs/Chara/" + PlayerInfo.playerChara[0]);
+        if (playerPrefab != null) Instantiate(playerPrefab);
     }
     public void CreateEnemy()
     {
-
+        for (int x = 0; x < EncounterSystem.enemyCharasID.Count; x++)
+        {
+            GameObject playerPrefab = Resources.Load<GameObject>("Prefabs/Enemy/" + CastForEnemy.Instance.RetunEnemyName(EncounterSystem.enemyCharasID[x]));
+            if (playerPrefab != null) Instantiate(playerPrefab);
+        }
+        
     }
 
     private void StartEnemyAttack()

@@ -6,12 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class EncounterSystem : MonoBehaviour
 {
-    static List<int> enemyCharas = new List<int>();
+    public static List<int> enemyCharasID = new List<int>();
+    public static EncounterSystem Instance;
+    private void Awake()
+    {
+        Instance = this;
+    }
     static public void StartBattle()
     {
         for (int i = 0; i < Random.Range(0, 3); i++)
         {
-            enemyCharas.Add(Random.Range(0, 2));
+            enemyCharasID.Add(Random.Range(0, 2));
         }
 
         SceneManager.LoadScene("MainBattelScene");
