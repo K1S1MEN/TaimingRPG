@@ -29,15 +29,25 @@ public class BattleManager : MonoBehaviour
     
     void CreateParty()
     {
-        GameObject playerPrefab = Resources.Load<GameObject>("Prefabs/Chara/" + PlayerInfo.playerChara[0]);
+        GameObject playerPrefab = Resources.Load<GameObject>("Chara/" + PlayerInfo.playerChara[0]);
         if (playerPrefab != null) Instantiate(playerPrefab);
     }
     public void CreateEnemy()
     {
         for (int x = 0; x < EncounterSystem.enemyCharasID.Count; x++)
         {
-            GameObject playerPrefab = Resources.Load<GameObject>("Prefabs/Enemy/" + CastForEnemy.Instance.RetunEnemyName(EncounterSystem.enemyCharasID[x]));
-            if (playerPrefab != null) Instantiate(playerPrefab);
+            EnemyChara EnemyPrefab = Resources.Load<EnemyChara>("Enemy/AH"); //+ CastForEnemy.Instance.RetunEnemyName(EncounterSystem.enemyCharasID[x]));
+            if (EnemyPrefab != null)
+            {
+                EnemyChara enemy = Instantiate(EnemyPrefab);
+                enemyMember.Add(enemy);
+
+            }
+            else
+            {
+                Debug.LogError("“GPrefab‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ");
+            }
+
         }
         
     }
@@ -52,6 +62,7 @@ public class BattleManager : MonoBehaviour
 
     private async UniTask EnemyAttack(int i)
     {
+
         while (true)
         {
             await enemyMember[i].Loop();
@@ -70,6 +81,7 @@ public class BattleManager : MonoBehaviour
 
     private void Start()
     {
+        CreateEnemy();
         _ = Fade.Instance.FadeOut();
         _ = Maneger();
         StartEnemyAttack();

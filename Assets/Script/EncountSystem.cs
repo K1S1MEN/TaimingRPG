@@ -12,9 +12,14 @@ public class EncounterSystem : MonoBehaviour
     {
         Instance = this;
     }
+    private void Start()
+    {
+        enemyCharasID.Add(0);
+
+    }
     static public void StartBattle()
     {
-        for (int i = 0; i < Random.Range(0, 3); i++)
+       for (int i = 0; i < Random.Range(0, 3); i++)
         {
             enemyCharasID.Add(Random.Range(0, 2));
         }
