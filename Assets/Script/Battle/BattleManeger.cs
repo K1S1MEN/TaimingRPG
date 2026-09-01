@@ -26,7 +26,10 @@ public class BattleManager : MonoBehaviour
     public TextMeshProUGUI nowTurnText;
 
     private int TurnCount;
-    
+    [SerializeField] private Transform enemySpawnPoint1;
+    [SerializeField] private Transform enemySpawnPoint2;
+    [SerializeField] private Transform enemySpawnPoint3;
+
     void CreateParty()
     {
         GameObject playerPrefab = Resources.Load<GameObject>("Chara/" + PlayerInfo.playerChara[0]);
@@ -36,7 +39,8 @@ public class BattleManager : MonoBehaviour
     {
         for (int x = 0; x < EncounterSystem.enemyCharasID.Count; x++)
         {
-            EnemyChara EnemyPrefab = Resources.Load<EnemyChara>("Enemy/AH"); //+ CastForEnemy.Instance.RetunEnemyName(EncounterSystem.enemyCharasID[x]));
+            EnemyChara EnemyPrefab = Resources.Load<EnemyChara>("Enemy/"+ CastForEnemy.Instance.RetunEnemyName(EncounterSystem.enemyCharasID[x]));
+            Debug.Log(CastForEnemy.Instance.RetunEnemyName(EncounterSystem.enemyCharasID[x]));
             if (EnemyPrefab != null)
             {
                 EnemyChara enemy = Instantiate(EnemyPrefab);
