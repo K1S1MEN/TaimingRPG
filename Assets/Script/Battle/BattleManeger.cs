@@ -19,9 +19,9 @@ public class BattleManager : MonoBehaviour
 
     public List<PlayerChara> playerMember = new List<PlayerChara>();
 
-    public bool ActivFlag;
+    private bool ActivFlag;
 
-    public int Count;
+    private int Count;
 
     public TextMeshProUGUI nowTurnText;
 
@@ -29,12 +29,6 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private Transform enemySpawnPoint1;
     [SerializeField] private Transform enemySpawnPoint2;
     [SerializeField] private Transform enemySpawnPoint3;
-
-    void CreateParty()
-    {
-        GameObject playerPrefab = Resources.Load<GameObject>("Chara/" + PlayerInfo.playerChara[0]);
-        if (playerPrefab != null) Instantiate(playerPrefab);
-    }
     public void CreateEnemy()
     {
         for (int x = 0; x < EncounterSystem.enemyCharasID.Count; x++)
@@ -43,8 +37,25 @@ public class BattleManager : MonoBehaviour
             Debug.Log(CastForEnemy.Instance.RetunEnemyName(EncounterSystem.enemyCharasID[x]));
             if (EnemyPrefab != null)
             {
-                EnemyChara enemy = Instantiate(EnemyPrefab);
-                enemyMember.Add(enemy);
+                EnemyChara enemy;
+                switch (x)
+                {
+                    case 0:
+                        enemy = Instantiate(EnemyPrefab, enemySpawnPoint1.position, enemySpawnPoint1.rotation);
+                        enemyMember.Add(enemy);
+                        break;
+                    case 1:
+                        enemy = Instantiate(EnemyPrefab, enemySpawnPoint2.position, enemySpawnPoint2.rotation);
+                        enemyMember.Add(enemy);
+                        break;
+                    case 2:
+                        enemy = Instantiate(EnemyPrefab, enemySpawnPoint3.position, enemySpawnPoint3.rotation);
+                        enemyMember.Add(enemy);
+                        break;
+
+
+                }
+                
 
             }
             else
@@ -69,6 +80,7 @@ public class BattleManager : MonoBehaviour
 
         while (true)
         {
+            if (enemyMember[i] == null) break;
             await enemyMember[i].Loop();
 
             if (playerMember.Count < 0)
@@ -85,8 +97,9 @@ public class BattleManager : MonoBehaviour
 
     private void Start()
     {
-        CreateEnemy();
+        
         _ = Fade.Instance.FadeOut();
+        CreateEnemy();
         _ = Maneger();
         StartEnemyAttack();
     }
@@ -135,14 +148,4 @@ public class BattleManager : MonoBehaviour
     {
         return playerMember[Random.Range(0, playerMember.Count)];
     }
-
-    private void CheckEnemy()
-    {
-        if (enemyMember.Count <= 0)
-        {
-            _ = Finish();
-        }
-    }
-
-
 }

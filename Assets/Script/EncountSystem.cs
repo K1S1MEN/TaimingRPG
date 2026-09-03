@@ -18,10 +18,15 @@ public class EncounterSystem : MonoBehaviour
     }
     static public void StartBattle()
     {
-       for (int i = 0; i < Random.Range(1, 4); i++)
+        for (int i = 0; i < Random.Range(0, 3); i++)
         {
+            if (enemyCharasID.Count >= 3)
+            {
+                enemyCharasID.RemoveAt(i);
+            }
             enemyCharasID.Add(Random.Range(0, 2));
         }
+
 
         SceneManager.LoadScene("MainBattelScene");
     }

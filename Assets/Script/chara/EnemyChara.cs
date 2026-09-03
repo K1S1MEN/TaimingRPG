@@ -35,6 +35,7 @@ public class EnemyChara : characterBase
         if (HP <= 0)
         {
             BattleManager.Instance.enemyMember.Remove(this);
+            this.enabled = false;
             Destroy(this.gameObject);
         }
 
@@ -48,6 +49,11 @@ public class EnemyChara : characterBase
     public async UniTask Loop()
     {
         await UniTask.Delay(coolTime);
+
+        if (this == null) return;
+        if (BattleManager.Instance == null) return;
+
+
         attack(BattleManager.Instance.GivePlayer(), false);
     }
 }

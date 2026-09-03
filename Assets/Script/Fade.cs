@@ -18,30 +18,37 @@ public class Fade : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        DontDestroyOnLoad(transform.root.gameObject);
     }
 
     public async UniTask FadeOut()
     {
-        while (image.color.a > 0.0f)
+        var token = this.GetCancellationTokenOnDestroy();
+
+        while (!token.IsCancellationRequested && image != null && image.color.a > 0f)
         {
             Color c = image.color;
             c.a -= fadeSpeed * Time.deltaTime;
             c.a = Mathf.Clamp01(c.a);
+
+            if (image == null) return;
             image.color = c;
-            await UniTask.Yield();
+
+            await UniTask.Yield(token);
         }
     }
 
     public async UniTask FadeIn()
     {
-        while (image.color.a < 0.99f)
+        var token = this.GetCancellationTokenOnDestroy();
+        while (!token.IsCancellationRequested && image.color.a < 0.99f)
         {
             Color c = image.color;
             c.a += fadeSpeed * Time.deltaTime;
             c.a = Mathf.Clamp01(c.a);
             image.color = c;
 
-            await UniTask.Yield();
+            await UniTask.Yield(token);
 
         }
     }
