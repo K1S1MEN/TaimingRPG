@@ -77,18 +77,22 @@ public class BattleManager : MonoBehaviour
 
     private async UniTask EnemyAttack(int i)
     {
+        while (i < enemyMember.Count)
+    {
+        await enemyMember[i].Loop();
+    }
 
-        while (true)
-        {
-            if (enemyMember[i] == null) break;
-            await enemyMember[i].Loop();
+        //while (true)
+        //{
+        //    if (enemyMember[i] == null) return;
+        //    await enemyMember[i].Loop();
 
-            if (playerMember.Count < 0)
-            {
-                _ =  Finish();
-                break;
-            }
-        }
+        //    if (playerMember.Count <= 0)
+        //    {
+        //        _ =  Finish();
+        //        return;
+        //    }
+        //}
     }
     private void Awake()
     {

@@ -53,7 +53,8 @@ public class EnemyChara : characterBase
         if (this == null) return;
         if (BattleManager.Instance == null) return;
 
-
+        if (BattleManager.Instance.playerMember.Count <= 0)
+            return;
         attack(BattleManager.Instance.GivePlayer(), false);
     }
 }

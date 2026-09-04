@@ -67,6 +67,13 @@ public class PlayerChara : characterBase
     {
         Slider.value = HP;
         base.Damage(ATP);
+        if (HP <= 0)
+        {
+            BattleManager.Instance.playerMember.Remove(this);
+            this.enabled = false;
+            Destroy(this.gameObject);
+        }
+
     }
 
     private void StartCount()
