@@ -17,39 +17,68 @@ public class Fade : MonoBehaviour
 
     private void Awake()
     {
+
+        if (Instance != null && Instance != this)
+        {
+            Destroy(transform.root.gameObject);
+            return;
+        }
+
         Instance = this;
+
+        var destroyToken = this.GetCancellationTokenOnDestroy();
+
         DontDestroyOnLoad(transform.root.gameObject);
+
     }
 
     public async UniTask FadeOut()
     {
         var token = this.GetCancellationTokenOnDestroy();
 
-        while (!token.IsCancellationRequested && image != null && image.color.a > 0f)
+        while (!token.IsCancellationRequested &&
+               image != null &&
+               image.color.a > 0f)
         {
             Color c = image.color;
             c.a -= fadeSpeed * Time.deltaTime;
             c.a = Mathf.Clamp01(c.a);
 
-            if (image == null) return;
             image.color = c;
 
             await UniTask.Yield(token);
+        }
+
+        if (!token.IsCancellationRequested && image != null)
+        {
+            Color c = image.color;
+            c.a = 0f;
+            image.color = c;
         }
     }
 
     public async UniTask FadeIn()
     {
         var token = this.GetCancellationTokenOnDestroy();
-        while (!token.IsCancellationRequested && image.color.a < 0.99f)
+
+        while (!token.IsCancellationRequested &&
+               image != null &&
+               image.color.a < 1f)
         {
             Color c = image.color;
             c.a += fadeSpeed * Time.deltaTime;
             c.a = Mathf.Clamp01(c.a);
+
             image.color = c;
 
             await UniTask.Yield(token);
+        }
 
+        if (!token.IsCancellationRequested && image != null)
+        {
+            Color c = image.color;
+            c.a = 1f;
+            image.color = c;
         }
     }
 }
