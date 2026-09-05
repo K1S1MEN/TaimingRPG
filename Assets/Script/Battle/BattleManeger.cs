@@ -33,8 +33,7 @@ public class BattleManager : MonoBehaviour
     {
         for (int x = 0; x < EncounterSystem.enemyCharasID.Count; x++)
         {
-            EnemyChara EnemyPrefab = Resources.Load<EnemyChara>("Enemy/"+ CastForEnemy.Instance.RetunEnemyName(EncounterSystem.enemyCharasID[x]));
-            Debug.Log(CastForEnemy.Instance.RetunEnemyName(EncounterSystem.enemyCharasID[x]));
+            EnemyChara EnemyPrefab = Resources.Load<EnemyChara>("Enemy/" + CastForEnemy.Instance.RetunEnemyName(EncounterSystem.enemyCharasID[x]));
             if (EnemyPrefab != null)
             {
                 EnemyChara enemy;
@@ -55,7 +54,7 @@ public class BattleManager : MonoBehaviour
 
 
                 }
-                
+
 
             }
             else
@@ -64,7 +63,7 @@ public class BattleManager : MonoBehaviour
             }
 
         }
-        
+
     }
 
     private void StartEnemyAttack()
@@ -78,31 +77,20 @@ public class BattleManager : MonoBehaviour
     private async UniTask EnemyAttack(int i)
     {
         while (i < enemyMember.Count)
-    {
-        await enemyMember[i].Loop();
-    }
+        {
+            await enemyMember[i].Loop();
+        }
 
-        //while (true)
-        //{
-        //    if (enemyMember[i] == null) return;
-        //    await enemyMember[i].Loop();
-
-        //    if (playerMember.Count <= 0)
-        //    {
-        //        _ =  Finish();
-        //        return;
-        //    }
-        //}
     }
     private void Awake()
     {
         Instance = this;
     }
 
-    private void Start()
+    private async void  Start()
     {
-        
-        _ = Fade.Instance.FadeOut();
+
+        await Fade.Instance.FadeOut();
         CreateEnemy();
         _ = Maneger();
         StartEnemyAttack();

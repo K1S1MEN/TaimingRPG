@@ -60,7 +60,6 @@ public class Fade : MonoBehaviour
     public async UniTask FadeIn()
     {
         var token = this.GetCancellationTokenOnDestroy();
-
         while (!token.IsCancellationRequested &&
                image != null &&
                image.color.a < 1f)

@@ -164,7 +164,7 @@ MonoBehaviour:
   HP: 50
   maxHP: 50
   dif: 0
-  Attack: 5
+  Attack: 40
   Log: 
   HPSlider: {fileID: 7401695683441224203}
   EXP: 5

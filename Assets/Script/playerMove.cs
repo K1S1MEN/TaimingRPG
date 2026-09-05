@@ -16,6 +16,7 @@ public class playerMove : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        _  = Fade.Instance.FadeOut();
     }
     void Update()
     {
