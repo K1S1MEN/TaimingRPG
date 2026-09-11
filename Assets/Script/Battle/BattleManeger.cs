@@ -127,6 +127,10 @@ public class BattleManager : MonoBehaviour
             {
                 Count++;
             }
+            if (playerMember.Count<=0)
+            {
+                _ = Finish();
+            }
             TurnCount++;
         }
     }
