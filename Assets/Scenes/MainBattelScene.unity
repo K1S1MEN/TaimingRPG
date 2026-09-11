@@ -1055,7 +1055,7 @@ MonoBehaviour:
   criticalPoint: {fileID: 674609869}
   criticalWidth: 100
   max: 0.9
-  speed: 2
+  speed: 13.84
   overLine: 10
   rect: {fileID: 1706534907}
   nowTurnText: {fileID: 1847834631}

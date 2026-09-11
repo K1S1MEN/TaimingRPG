@@ -1,10 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Rendering;
 using UnityEngine.UI;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 
 public class Fade : MonoBehaviour
