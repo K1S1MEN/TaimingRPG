@@ -16,7 +16,7 @@ public class AegisHenchman : EnemyChara
         Name = "AegisHenchman";
         id = 1;
         Log = "‚¿‚Ñ";
-        coolTime = 10000;
+        coolTime = 3000;
         base.Start();
 
 

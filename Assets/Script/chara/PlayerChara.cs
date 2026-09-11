@@ -100,8 +100,12 @@ public class PlayerChara : characterBase
     public override  void attack(characterBase target,bool Judge)
     {
         animator.SetTrigger("attack1");
-        base.attack(target, Judge);
-        _ = TextChara(attackText);
+        if (Judge)
+        {
+            base.attack(target, Judge);
+            _ = TextChara(attackText);
+        }
+       
     }
 
     public virtual void Attack2(characterBase target, bool Judge)

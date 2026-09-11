@@ -164,11 +164,11 @@ MonoBehaviour:
   HP: 50
   maxHP: 50
   dif: 0
-  Attack: 40
+  Attack: 80
   Log: 
   HPSlider: {fileID: 7401695683441224203}
   EXP: 5
-  coolTime: 2014
+  coolTime: 1000
   charaText: {fileID: 0}
   nameText: {fileID: 0}
   sound1: {fileID: 8300000, guid: 1d74880bed4586644a16a79a2d9dc8af, type: 3}
