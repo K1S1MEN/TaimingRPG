@@ -31,8 +31,8 @@ public class playerMove : MonoBehaviour
             if (Random.Range(0, 150) == 0)
             {
                 PlayerInfo.playerStage = SceneManager.GetActiveScene().name;
-                PlayerInfo.playerPosition = new Vector2(x,y);
-                encount();
+                PlayerInfo.playerPosition = new Vector2(this.transform.position.x, this.transform.position.y);
+                //encount();
             }
 
         }
