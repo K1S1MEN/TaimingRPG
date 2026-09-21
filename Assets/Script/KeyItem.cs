@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class KeyItem : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("a");
         if (collision.transform.tag == "Player")
         {
             PlayerInfo.PlayerStage01Key = true;
+            Destroy(this.gameObject);
         }
     }
 }
