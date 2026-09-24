@@ -32,7 +32,7 @@ public class playerMove : MonoBehaviour
             {
                 PlayerInfo.playerStage = SceneManager.GetActiveScene().name;
                 PlayerInfo.playerPosition = new Vector2(this.transform.position.x, this.transform.position.y);
-                encount();
+                //encount();
             }
 
         }

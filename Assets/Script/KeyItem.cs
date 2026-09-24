@@ -5,10 +5,10 @@ using UnityEngine;
 public class KeyItem : MonoBehaviour
 {
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("a");
-        if (collision.transform.tag == "Player")
+        if (collision.gameObject.tag == "player")
         {
             PlayerInfo.PlayerStage01Key = true;
             Destroy(this.gameObject);
