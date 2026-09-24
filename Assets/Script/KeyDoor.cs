@@ -8,12 +8,12 @@ public class KeyDoor : MonoBehaviour
 {
     public string RoomName;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.tag == "Player")
+        if (collision.transform.tag == "player")
         {
 
-            if (PlayerInfo.PlayerStage01Key)
+            if (PlayerInfo.PlayerStage01Key == true)
             {
                 SceneManager.LoadScene(RoomName);
             }

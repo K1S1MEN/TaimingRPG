@@ -98,12 +98,12 @@ public class BattleManager : MonoBehaviour
     {
 
     }
-    public async Task Finish()
+    public async UniTask Finish()
     {
         await Fade.Instance.FadeIn();
         SceneManager.LoadScene(PlayerInfo.playerStage);
     }
-    public async Task Maneger()
+    public async UniTask Maneger()
     {
         ActivFlag = true;
 
