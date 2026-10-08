@@ -11,6 +11,10 @@ public class playerMove : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         _  = Fade.Instance.FadeOut();
+        if (PlayerInfo.playerPosition != null)
+        {
+            transform.position = PlayerInfo.playerPosition;
+        }
     }
     void Update()
     {
@@ -37,6 +41,5 @@ public class playerMove : MonoBehaviour
     {
         await Fade.Instance.FadeIn();
         EncounterSystem.StartBattle();
-
     }
 }

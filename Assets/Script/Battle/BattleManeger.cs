@@ -113,7 +113,6 @@ public class BattleManager : MonoBehaviour
             }
             else
             {
-                nowTurnText.text = "COOL TIME";
                 await playerMember[Count].Line();
             }
             if (Count < playerMember.Count)

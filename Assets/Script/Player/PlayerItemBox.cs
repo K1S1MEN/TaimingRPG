@@ -1,16 +1,14 @@
 using UnityEngine;
 
-public class PlayerInfo:MonoBehaviour
+public static class PlayerInfo
 {
-    public static PlayerInfo Instance;
     public static string playerStage = "";
     public static Vector2 playerPosition;
     public static PlayerChara[] playerChara = new PlayerChara[3];
     public static bool PlayerStage01Key = false;
-
-    private void Awake()
+    public static bool[] PlayerItems = new bool[3]
     {
-        Instance = this;
-        DontDestroyOnLoad(this.gameObject);
-    }
+        false,true,false
+    };
+
 }
