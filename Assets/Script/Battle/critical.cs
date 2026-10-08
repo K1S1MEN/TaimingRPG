@@ -1,11 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Unity.VisualScripting;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
 using TMPro;
-using System;
 
 public class critical : MonoBehaviour
 {

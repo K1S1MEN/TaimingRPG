@@ -1,10 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Threading.Tasks;
-using Cysharp.Threading.Tasks;
 
 public class playerMove : MonoBehaviour
 {
@@ -32,7 +27,7 @@ public class playerMove : MonoBehaviour
             {
                 PlayerInfo.playerStage = SceneManager.GetActiveScene().name;
                 PlayerInfo.playerPosition = new Vector2(this.transform.position.x, this.transform.position.y);
-                //encount();
+                encount();
             }
 
         }

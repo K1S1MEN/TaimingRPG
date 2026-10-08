@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using TMPro;
 using UnityEngine;
@@ -17,7 +15,7 @@ public class BattleManager : MonoBehaviour
 
     public List<PlayerChara> playerMember = new List<PlayerChara>();
 
-    private bool ActivFlag;
+
 
     private int Count;
 
@@ -105,7 +103,6 @@ public class BattleManager : MonoBehaviour
     }
     public async UniTask Maneger()
     {
-        ActivFlag = true;
 
         while (true)
         {
